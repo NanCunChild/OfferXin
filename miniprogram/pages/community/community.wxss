@@ -91,10 +91,25 @@ page {
   background-color: #fd2f2fb7;
   color: #dedede;
 }
+.CETag{
+  background-color: #fd2f2fb7;
+}
+.PETag{
+  background-color: #4242ecde;
+}
+.SETag{
+  background-color: #4f8b42d0;
+}
 
 .itemDetail {
   font-size: 24rpx;
   display: flex;
+  margin-top: 5rpx;
+}
+
+.itemLocationContainer{
+  display: flex;
+  align-items: center;
 }
 
 .itemLocation {
@@ -110,6 +125,24 @@ page {
 .itemPublishDate {
   padding: 2rpx 8rpx 2rpx 8rpx;
   margin: 1rpx 4rpx 1rpx 4rpx;
+}
+
+.itemWatchedContainer{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-top: 6rpx;
+}
+
+.itemWatchedImgContainer{
+  display: flex;
+  align-items: center;
+  margin: 1rpx 1rpx 1rpx 10rpx;
+}
+
+.itemWatchedImg{
+  height: 16rpx;
+  width: 21rpx;
 }
 
 .bottom {

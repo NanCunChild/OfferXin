@@ -10,7 +10,8 @@
     "pages/mine/collectlist/collectlist",
     "pages/mine/publishlist/publishlist",
     "pages/mine/help/help",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/recruitment_details"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8DEEEE",

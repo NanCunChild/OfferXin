@@ -9,6 +9,8 @@ Page({
     recruitment_items: [],
   },
   onSearch(event) {
+    var unproc_recruitment_items = [];
+    var proc_recruitment_items = [];
     var that = this;
     if (event.detail == "") return;
     // 在页面或组件中的某个事件中调用云函数
@@ -18,22 +20,50 @@ Page({
         action: "getRecruitmentData",
         searchOn: event.detail
       },
-      success: res => {
+      success: async res => {
         console.log(res)
         // 在这里处理云函数返回的数据
-        that.setData({
-          recruitment_items: res.result
-        })
+        unproc_recruitment_items = res.result;
+        console.log(unproc_recruitment_items)
+        that.dataProcessing(unproc_recruitment_items)
       },
       fail: err => {
         console.error('云函数调用失败：', err)
         // 在这里处理云函数调用失败的情况
       }
     })
-    // console.log("ITEMS:")
-    // console.log(this.data.recruitment_items)
-  },
 
+  },
+  dataProcessing(original) {
+    // console.log("original:")
+    // console.log(original)
+    for (let i = 0; i < original.length; i++) {
+      //字符串 数组化
+      original[i].location = original[i].location.split(',');
+      original[i].position_A = original[i].position_A.split(',');
+      original[i].position_B = original[i].position_B.split(',');
+      original[i].position_C = original[i].position_C.split(',');
+
+      if (original[i].location.length > 2) {
+        original[i].location_simple = original[i].location.slice(0, 2);
+        original[i].location_simple[2] = "...";
+      } else {
+        original[i].location_simple = original[i].location;
+      }
+
+      let dateParts = original[i].update_date.split("/");
+      let year = dateParts[0];
+      let month = dateParts[1];
+      let day = dateParts[2];
+      original[i].update_date = `${year}年${month}月${day}日`;
+
+      console.log(original[i]);
+    }
+    this.setData({
+      recruitment_items: original
+    })
+    return "ca"
+  },
   goSalaryDetail(event) {
     wx.navigateTo({
       url: '/pages/salaryDetail/salaryDetail?_id=' + event.currentTarget.dataset.id
