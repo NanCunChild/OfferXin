@@ -1,0 +1,24 @@
+<!--pages/register/register.wxml-->
+
+<view class="box">
+  <view class="avator" bindtap="onDialogShow">
+    <image src="{{avator || '/images/avator.png'}}"></image>
+  </view>
+  <input placeholder="在这里输入用户名" value="{{nickname}}" bindinput="onInput" />
+
+  <view class="tip">Tips: 点击头像设置头像，点击昵称设置昵称</view>
+  <button type="primary" style="width: 40%;" bindtap="commit">提交</button>
+</view>
+
+<van-dialog use-slot title="请选择头像" show="{{ show }}" showConfirmButton="{{false}}" showCancelButton>
+  <view class='image_container'>
+
+    <view class="a_row" wx:for="{{ 24 }}" wx:for-item="row" wx:key="*this">
+      <view class="a_col" wx:for="{{ 5 }}" wx:for-item="col" wx:key="*this" bindtap="setAvator" data-avator='{{row*5+col+1}}'>
+        <image src='{{"cloud://cloud1-9g60aedw7fbba590.636c-cloud1-9g60aedw7fbba590-1312971769/avators/"+(row*5+col+1)+".jpg"}}' />
+      </view>
+    </view>
+
+  </view>
+
+</van-dialog>

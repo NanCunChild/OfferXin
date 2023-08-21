@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+  },
+  "navigationBarTitleText": "查查薪 | 推荐内容",
+
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 200
+}

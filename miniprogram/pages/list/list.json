@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "salary": "../../components/salary_card/salary_card",
+    "community": "../../components/community_card/community_card"
+  },
+
+  "onReachBottomDistance": 200
+}

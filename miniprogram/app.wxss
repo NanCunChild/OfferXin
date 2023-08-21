@@ -1,0 +1,42 @@
+/**app.wxss**/
+page {
+  font-family: PingFang SC;
+  font-weight: 500;
+  font-size: 30rpx;
+  color: #796f6f;
+}
+.row_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.collumn_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.left{
+  text-align: left;
+  justify-content: left;
+}
+.right{
+  text-align: right;
+  justify-content: right;
+}
+.center{
+  text-align: center;
+  justify-content: center;
+}
+.blank_top{
+  padding-top: 200rpx;
+}
+.image_blank{
+  width: 400rpx;
+  height: 400rpx;
+}
+.note_blank{
+  color: #b1b6b6;
+  font-size: 36rpx;
+}

@@ -1,0 +1,76 @@
+<!--components/chat_card/chat_card.wxml-->
+
+<view class="container">
+  <view class="avator">
+    <image src="{{obj.avator || '../../images/avator.png'}}" />
+  </view>
+
+
+  <view class="body">
+    <view class='nickname'>{{obj.nickname||'匿名'}}</view>
+    <view class="row_container left">
+      <van-icon class="icon l" name="clock-o" />{{obj.time || '????-??'}}
+    </view>
+    <view class="content" bindtap="showReply">{{obj.content}}</view>
+    <view class="row_container left">
+      <view class="icon l" bindtap="onLike">
+        <van-icon name="good-job" wx:if="{{like}}" />
+        <van-icon name="good-job-o" wx:else />
+      </view>
+      {{obj.likes||0}}
+      <view class='icon' bindtap="showReply">
+        <van-icon name="chat-o" />
+      </view>
+
+      {{obj.replies.length||0}}
+      <van-icon class='icon' name="share-o" style="margin-right: 0;" />
+      <button class="share_button" open-type="share" />
+    </view>
+    <view class="reply_container" wx:if="{{obj.replies.length > 0}}" bindtap="showReply">
+      <block wx:for="{{2}}" wx:key="*this">
+        <view class='reply' wx:if="{{obj.replies[index]}}">
+          <text class="name">{{(obj.replies[index].nickname||'匿名') + ':'}}</text>
+          <text>{{obj.replies[index].content}}</text>
+        </view>
+      </block>
+      <view class="note">
+        点击查看详情
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="divide_line"></view>
+
+<van-popup show="{{ reply }}" position="bottom" round custom-style="height: 90%" bind:close="showReply" closeable>
+  <view class='pop_container'>
+    <block wx:for="{{obj.replies}}">
+      <view class="container">
+        <image class="avator" src="{{obj.avator || '../../images/avator.png'}}" />
+
+        <view class="body">
+          <view class='nickname' style="color: rgb(16, 193, 224);">{{item.nickname || '匿名'}}</view>
+          <view class="row_container left">
+            <van-icon class="icon l" name="clock-o" />{{item.time || '????-??'}}
+          </view>
+          <view class="content">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="divide_line"></view>
+    </block>
+
+    <view class='row_container r_box'>
+      <view class="r_field">
+        <input value="{{content}}" placeholder="请输入您的评论" bindconfirm="onConfirm" bindinput="updateValue" cursor-spacing="{{12}}" />
+      </view>
+      <view class="rb_box">
+        <button class="r_button" bindtap="onConfirm">发布</button>
+      </view>
+    </view>
+
+  </view>
+
+</van-popup>
+
+<van-toast id="van-toast" />

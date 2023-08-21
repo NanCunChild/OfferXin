@@ -1,0 +1,43 @@
+<!--pages/index/index.wxml-->
+<view class='top_title'>查 查 薪</view>
+<view class="top_text">查薪、讨论 —— 就来查查薪</view>
+
+<view class="row_container center top_box">
+  <view class="row_container left search_box">
+    <icon class="search_icon" type="search" size="15" />
+    <input class="search_text" placeholder="如：上海+字节+后端" bindconfirm="search" />
+  </view>
+</view>
+
+<van-tabs swipeable style="touch-action: manipulation;" active="{{active}}" bind:change="onChange">
+  <van-tab title="查城市">
+    <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
+      <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
+        <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+        <view class="ads_title">{{ads[row*2+col].title}}</view>
+      </view>
+    </view>
+  </van-tab>
+
+  <van-tab title="查公司">
+    <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
+      <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
+        <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+        <view class="ads_title">{{ads[row*2+col].title}}</view>
+      </view>
+    </view>
+  </van-tab>
+
+  <van-tab title="查岗位">
+    <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
+      <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
+        <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+        <view class="ads_title">{{ads[row*2+col].title}}</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+
+<view class="center ads_bottom">更多求职招聘资讯请关注"查查薪"公众号</view>
+
+<van-toast id="van-toast" />

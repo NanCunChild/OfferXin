@@ -1,0 +1,152 @@
+/* components/chat_card/chat_card.wxss */
+@import '../../app.wxss';
+
+.container{
+  background-color: white;
+  padding: 20rpx 40rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+}
+
+.avator {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.avator image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.body{
+  width: 90%;
+}
+.content{
+  padding: 10rpx 0;
+  color: black;
+  font-weight: 500;
+}
+.nickname{
+  font-size: 24rpx;
+  color: rgb(92, 85, 85);
+  font-weight: 550;
+  margin-bottom: 8rpx;
+}
+.icon{
+  font-size: 32rpx;
+  margin-right: 8rpx;
+  margin-left: 32rpx;
+}
+.l{
+  margin-left: 0;
+}
+.share_button {
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: -50rpx;
+  opacity: 0.01;
+  z-index: 9;
+}
+.divide_line{
+  margin: 12rpx 40rpx;
+  border-bottom: 1rpx solid #e2dddd;
+}
+.reply_container{
+  background-color: rgb(236, 236, 236);
+  border-radius: 16rpx;
+  padding: 16rpx 24rpx;
+  color: #7e6f6f;
+}
+.name{
+  font-size: 24rpx;
+  color: rgb(16, 193, 224);
+  font-weight: 550;
+  margin-right: 8rpx;
+}
+.reply{
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  line-height: 40rpx;
+}
+.note{
+  font-size: 22rpx;
+  color: rgb(128, 127, 148);
+  font-weight: 600;
+  margin-top: 8rpx;
+}
+.pop_container{
+  margin-top: 10%;
+  height: 80%;
+  padding-bottom: 120rpx;
+  overflow: scroll;
+}
+.pop_reply_field{
+  width: 90%;
+  height: 20%;
+  margin: 0 5%;
+
+  border-radius: 20rpx;
+  background-color: rgb(236, 236, 236);
+}
+.pop_reply_textarea{
+  padding: 20rpx;
+  font-weight: 400;
+  font-size: 32rpx;
+}
+.divide{
+  margin: 4% 0;
+  border-bottom: 3rpx solid #d1c8c8;
+}
+.pop_icon{
+  width: 90%;
+  height: 10%;
+  margin: 0 2% 0 3%;
+}
+
+.r_box{
+  width: 100%;
+  background: rgb(255, 255, 255);
+  opacity: 1;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  padding: 24rpx;
+  border-top: 1rpx solid #eee;
+  align-items: center;
+  z-index: 8;
+
+  display: flex;
+  justify-content: left;
+}
+.r_field{
+  width: 80%;
+  background-color: rgb(235, 235, 235);
+  border-radius: 25rpx;
+  padding: 16rpx;
+}
+.rb_box{
+  margin-left: 3%;
+}
+.r_button{
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #7e6f6f;
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+}
+.r_button::after{
+  border: none;
+}

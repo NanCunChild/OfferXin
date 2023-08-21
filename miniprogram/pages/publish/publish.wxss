@@ -1,0 +1,50 @@
+/**index.wxss**/
+page{
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #888888;
+}
+
+.container{
+  padding-top: 200rpx;
+  background: -webkit-linear-gradient(top, #8DEEEE, rgb(247, 243, 243));
+}
+
+.title {
+  font-weight: 500;
+  color: #000000;
+  font-size: 60rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.top_tip {
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #888888;
+  margin-bottom: 28rpx;
+  text-align: center;
+}
+
+.form_container {
+  margin-top: 50rpx;
+  margin-bottom: 70rpx;
+  border-radius: 50rpx;
+  background-color: white;
+  width: 90%;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  margin-left: 5%;
+}
+
+.label {
+  margin-left: 5%;
+  font-weight: 1000;
+  font-size: 32rpx;
+  color: #3acce2;
+}
+
+.textarea{
+  min-height: 200rpx !important;
+}

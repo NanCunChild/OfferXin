@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/community/community",
+    "pages/mine/mine",
+    "pages/webview/webview",
+    "pages/list/list",
+    "pages/salaryDetail/salaryDetail",
+    "pages/mine/collectlist/collectlist",
+    "pages/mine/publishlist/publishlist",
+    "pages/mine/help/help",
+    "pages/register/register"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#8DEEEE",
+    "navigationBarTitleText": "查查薪",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "爆料",
+        "iconPath": "/images/tabbar/publish.png",
+        "selectedIconPath": "/images/tabbar/publish_o.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home_o.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "校招",
+        "iconPath": "/images/tabbar/community.png",
+        "selectedIconPath": "/images/tabbar/community_o.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/images/tabbar/mine.png",
+        "selectedIconPath": "/images/tabbar/mine_o.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

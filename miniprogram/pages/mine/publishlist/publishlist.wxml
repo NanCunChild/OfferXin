@@ -1,0 +1,44 @@
+<view>
+  <block wx:if="{{active==0}}">
+    <view class='collumn_container center blank_top' wx:if="{{salaries.length==0}}">
+      <image class="image_blank" src="../../../images/blank.png" />
+      <view class="note_blank">还没有发布~</view>
+    </view>
+    <view wx:else>
+      <block wx:for="{{salaries}}" wx:key="_id">
+        <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
+        <view class="divide_line"></view>
+      </block>
+
+      <view class="bottom" wx:if="{{isLoadingSalaries}}">加载中</view>
+      <view class="bottom" wx:if="{{isSalariesMax}}">到底啦</view>
+    </view>
+  </block>
+
+  <block wx:else="{{active==1}}">
+    <view class='collumn_container center blank_top' wx:if="{{communities.length==0}}">
+      <image class="image_blank" src="../../../images/blank.png" />
+      <view class="note_blank">还没有发布~</view>
+    </view>
+    <view wx:else>
+      <block wx:for="{{communities}}" wx:key="_id">
+        <community obj="{{item.info}}" bindtap="goCommunityDetail" data-id="{{item._id}}"></community>
+        <view class="divide_line"></view>
+      </block>
+      <view class="bottom" wx:if="{{isLoadingCommunities}}">加载中</view>
+      <view class="bottom" wx:if="{{isCommunitiesMax}}">到底啦</view>
+    </view>
+  </block>
+
+</view>
+
+
+<van-tabbar active='{{active}}' bind:change="onChange" class="tabbar">
+  <van-tabbar-item icon='balance-o'>薪资</van-tabbar-item>
+  <van-tabbar-item icon='friends-o'>社区</van-tabbar-item>
+</van-tabbar>
+
+
+
+
+<van-toast id="van-toast" />

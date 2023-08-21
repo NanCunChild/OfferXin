@@ -1,0 +1,32 @@
+<!--components/select/select.wxml-->
+
+<van-field
+  value="{{value}}"
+  placeholder="{{ palceholder }}"
+  readonly="true"
+  right-icon="arrow"
+  clickable="true"
+  bindtap="onTap"
+/>
+
+<van-popup
+  show="{{show}}"
+  round
+  position="bottom"
+  custom-style="height: 600rpx"
+  bind:close="onClose"
+>
+  <van-picker
+    show-toolbar
+    title="{{ title }}"
+    columns="{{ columns }}"
+    bind:cancel="onCancel"
+    bind:confirm="onConfirm"
+    visible-item-count="5"
+  />
+
+</van-popup>
+
+
+
+

@@ -1,0 +1,71 @@
+/* pages/index/index.wxss */
+@import '../../app.wxss';
+
+.top_title{
+  font-family: 'Times New Roman', Times, serif;
+  padding: 0 0 20rpx;
+  background: #8DEEEE;
+  font-size: 80rpx;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+}
+.top_text{
+  font-family: 'Times New Roman', Times, serif;
+  padding: 0 0 20rpx;
+  background: #8DEEEE;
+  font-size: 30rpx;
+  text-align: center;
+  color: rgb(179, 166, 166);
+}
+
+.top_box{
+  background: #8DEEEE;
+}
+
+.search_box {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 40rpx 0;
+  padding: 30rpx 40rpx;
+  box-shadow: 0rpx 0rpx 5rpx 3rpx rgb(200, 202, 202);
+}
+.search_icon{
+  margin-right: 30rpx;
+}
+.search_text{
+  width: 100%;
+  font-weight: 500;
+  font-size: 35rpx;
+}
+
+.ads_row{
+  padding: 20rpx 35rpx 0;
+}
+.ads_col{
+  width: 48%;
+}
+.ad_img{
+  margin-bottom: 5rpx;
+  width: 100%;
+  height: 80px;
+  border-radius: 20px;
+}
+.ads_title{
+  font-weight: 500;
+  font-size: 30rpx;
+  color: black;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  line-height: 30rpx;
+}
+.ads_bottom{
+  padding: 60rpx 0;
+}

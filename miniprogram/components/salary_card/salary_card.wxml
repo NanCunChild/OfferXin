@@ -1,0 +1,42 @@
+<!--components/salary_card/salary_card.wxml-->
+<view class="item_box" bindtap="show">
+  <view class="row_container row2">
+    <view class="avator">
+      <image src="{{item.avator || '../../images/avator.png'}}" />
+    </view>
+    <view class="left cut_text position">
+      <view class="row_container">
+        <view class='nickname cut_text' style="width: 400rpx; font-size: 30rpx;">{{item.nickname || '匿名'}}</view>
+      </view>
+    </view>
+    <view class="right tag_box">
+      <text class="tag">{{item.type || ''}}</text>
+      <text class="tag">{{item.education || ''}}</text>
+    </view>
+  </view>
+
+  <view class="row_container row1">
+    <view class="left cut_text company">{{item.company || ''}}</view>
+    <view class="right cut_text salary">{{item.salary || ''}}</view>
+  </view>
+  <view class="row_container row2">
+    <view class="left cut_text position">{{item.job || ''}}</view>
+    <view class="right">
+      <van-icon name='hotel-o' />
+      <text class="city">{{item.city || ''}}</text>
+    </view>
+  </view>
+  <view class="row_container row3" wx:if="{{item.evaluation}}">
+    <view class="cut_text remark">{{item.evaluation}}</view>
+  </view>
+
+  <view class="row_container row4">
+    <view class="left" style="width: 70%;">
+      <van-icon class="icon_time" name="clock-o" />{{item.time || '????-??'}}
+      <van-icon class="icon_eye" name="eye-o" />{{item.views || 0}}
+    </view>
+    <view class="right">查看详情
+      <van-icon name="arrow" />
+    </view>
+  </view>
+</view>

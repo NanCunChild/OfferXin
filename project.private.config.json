@@ -1,0 +1,83 @@
+{
+  "setting": {
+    "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "pages/draft/draft",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/publish/publish",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/list/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/salaryDetail/salaryDetail",
+          "query": "item={\"_id\":\"c3b76fe96308928101eddebd0989fa37\", \"info\":{\"company\":\"海康威视\",\"job\":\"应用软件开发c++\",\"salary\":\"20x（15-18）\",\"city\":\"深圳\",\"collects\":0,\"evaluation\":\"一个月还有1000多点各种补贴，求问上海业务中心工作节奏怎么样，自己啥水平心里有数，比预料中多2-3k\",\"views\":3603,\"industry\":\"IT|互联网|通信\",\"education\":\"硕士其他\",\"type\":\"校招\",\"likes\":3,\"time\":\"2021-12\"}}",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/communityDetail/communityDetail",
+          "query": "item={\"_id\":\"f6e08a646309d11514db88e74284795c\",\"info\":{\"time\":\"2022-09\",\"title\":\"哈哈\",\"content\":\"谁说的\",\"nickname\":\"Tom\"}}",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/community/community",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/communityPublish/communityPublish",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/register/register",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "projectname": "demo01",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+}

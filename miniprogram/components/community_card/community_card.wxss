@@ -1,0 +1,79 @@
+/* components/community_card/community_card.wxss */
+
+@import '../../app.wxss';
+
+.container{
+  background-color: white;
+  border-radius: 20rpx;
+  margin: 3%;
+  padding: 30rpx;
+}
+
+.avator {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.avator image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+
+.row2{
+  margin-top: 30rpx;
+  font-weight: 800;
+}
+.row3{
+  color: #000;
+  margin: 30rpx 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  line-height: 50rpx;
+}
+.row4_1{
+  width: 30%;
+}
+.icon{
+  margin-right: 10rpx;
+  font-size: 36rpx;
+}
+.share_button {
+  float: left;
+  width: 100rpx;
+  height: 50rpx;
+  margin-left: -100rpx;
+  margin-right: 0rpx;
+  opacity: 0.01;
+  z-index: 9;
+
+}
+.nickname{
+  font-size: 24rpx;
+  color: black;
+  font-weight: 550;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  line-height: 50rpx;  
+}
+.icon2{
+  margin-right: 10rpx;
+  font-size: 32rpx;
+}
+.note{
+  font-size: 28rpx;
+}

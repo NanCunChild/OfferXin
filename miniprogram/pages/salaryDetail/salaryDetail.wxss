@@ -1,0 +1,142 @@
+/* pages/salaryDetail/salaryDetail.wxss */
+@import '../../app.wxss';
+
+page{
+  padding-top: 20rpx;
+  padding-bottom: 160rpx;
+}
+.top_box {
+  background-color: #fff;
+  margin: 0rpx 30rpx;
+  padding: 20rpx 20rpx;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+.top_row1{
+  width: 100%;
+}
+.top_salary{
+  margin: 20rpx 0;
+  font-weight: 600;
+  font-size: 40rpx;
+  color: #e97910;
+}
+.top_row3{
+  margin: 10rpx 0;
+}
+.item_key{
+  margin: 2rpx 0rpx;
+}
+.item_value{
+  margin: 1rpx 70rpx 0rpx;
+  font-weight: 500;
+  font-size: 32rpx;
+  color: black;
+}
+
+.divide_line{
+  margin: 20rpx 8%;
+  border-bottom: 1rpx solid #e2dddd;
+}
+
+.m_body{
+  padding: 6%;
+}
+.m_avator {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.m_avator image {
+  width: 64rpx;
+  height: 64rpx;
+}
+.m_nickname{
+  font-size: 24rpx;
+  color: rgb(92, 85, 85);
+  font-weight: 550;
+  margin-bottom: 8rpx;
+}
+.m_icon{
+  font-size: 32rpx;
+  margin-right: 8rpx;
+  margin-left: 32rpx;
+}
+.m_icon2{
+  font-size: 50rpx;
+  margin-right: 8rpx;
+  margin-left: 32rpx;
+}
+.l{
+  margin-left: 0;
+}
+.m_button {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: -100rpx;
+  opacity: 0.01;
+  z-index: 9;
+}
+.mid_row_icon{
+  width: 90%;
+  margin-left: 5%;
+  justify-content: space-between;
+}
+.m_icon_2{
+  align-items: center;
+  font-size: 60rpx;
+  color: #125780;
+}
+.m_content{
+  font-weight: 500;
+  font-size: 32rpx;
+  color: #464646;
+  padding: 25rpx 10rpx;
+}
+.r_box{
+  width: 100%;
+  background: rgb(255, 255, 255);
+  opacity: 1;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  padding: 24rpx;
+  border-top: 1rpx solid #eee;
+  align-items: center;
+  z-index: 8;
+
+  display: flex;
+  justify-content: left;
+}
+.r_field{
+  width: 80%;
+  background-color: rgb(235, 235, 235);
+  border-radius: 25rpx;
+  padding: 16rpx;
+}
+.rb_box{
+  margin-left: 3%;
+}
+.r_button{
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #7e6f6f;
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+}
+.r_button::after{
+  border: none;
+}
+.m_text{
+  padding: 24rpx 0;
+}
+.m_text2{
+  padding-top: 24rpx;
+}

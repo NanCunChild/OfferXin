@@ -1,0 +1,1 @@
+"D:\Develop\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-4ghqz1hra805ffdf --n quickstartFunctions --r --project "D:\Young\Study\查查薪\demo01" --report_first --report

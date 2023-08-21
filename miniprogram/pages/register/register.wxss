@@ -1,0 +1,62 @@
+/* pages/register/register.wxss */
+.box{
+  margin-top: 100rpx;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40rpx;
+  color: black;
+}
+
+.avator {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+}
+
+.avator image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.tip{
+  color: rgb(158, 166, 173);
+  font-size: 32rpx;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+}
+.image_container{
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 500rpx;
+  padding: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.a_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx 0;
+}
+
+.a_col {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+.a_col image {
+  width: 100rpx;
+  height: 100rpx;
+}

@@ -1,0 +1,12 @@
+var subString = function (val, start, stop) {
+  if (val) {
+      return val.substring(start, stop)
+  } else {
+      return ''
+  }
+}
+
+module.exports = {
+  subString: subString
+};
+
