@@ -1,0 +1,165 @@
+/* pages/recruitment_details/recruitment_details.wxss */
+page{
+  display: flex;
+  justify-content: center;
+  background-color: #d4d4d4;
+}
+.body{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.overviewCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  width: 90%;
+  height: auto;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  margin: 20rpx 2rpx 10rpx 2rpx;
+}
+.companyOutline{
+  display: flex;
+  width: 90%;
+  margin: 10rpx 2rpx ;
+  /* border: blue 2rpx solid; */
+  align-items: center;
+}
+.companyLogoContainer{
+  display: flex;
+  margin: 2rpx;
+}
+.companyLogo{
+  width: 108rpx;
+  height: 108rpx;
+}
+.textBundle{
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  min-width: 80%;
+  height: 108rpx;
+  margin: 2rpx;
+  /* border: blue 2rpx solid; */
+}
+.itemCharacterTag {
+  display: flex;
+  width: 54rpx;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 21rpx;
+  height: 28rpx;
+  padding: 2rpx 4rpx 2rpx 4rpx;
+  margin: 1rpx 8rpx 1rpx 4rpx;
+  border-radius: 4rpx;
+  background-color: #fd2f2fb7;
+  color: #dedede;
+}
+.recruitmentName{
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  font-size: 42rpx;
+  width: 98%;
+}
+.companyName{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  color: #adadad;
+}
+.publishDate{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #b4b4b4;
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+
+.characterCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  min-height: 64rpx;
+  width: 90%;
+  height: auto;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  margin: 20rpx 2rpx 10rpx 2rpx;
+}
+.tagBundle{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 15rpx 2rpx;
+}
+.tags{
+  display: flex;
+  font-size: 24rpx;
+  align-items: center;
+  padding: 2rpx 8rpx 2rpx 8rpx;
+  margin: 1rpx 4rpx 1rpx 4rpx;
+  border-radius: 6rpx;
+  background-color: #bdbdbdcc;
+  color: #ececec;
+}
+
+
+
+
+.companyHonor{
+  display: flex;
+  width: 90%;
+  background-color: #d6d6d6;
+  border-radius: 20rpx;
+  margin: 20rpx 5rpx;
+
+}
+.honorImg{
+  display: flex;
+  width: 72rpx;
+  height: 72rpx;
+  margin: 5rpx;
+}
+.honorText{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.detailCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  width: 90%;
+  height: auto;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  margin: 20rpx 2rpx 10rpx 2rpx;
+}
+.introBundle{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 10rpx 2rpx;
+  /* justify-content: center; */
+}
+.introTitle{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-right: auto;
+}
+.introDetail{
+  display: flex;
+  width: 98%;
+  font-size: 24rpx;
+}

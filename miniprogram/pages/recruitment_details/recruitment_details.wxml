@@ -1,0 +1,46 @@
+<!--pages/recruitment_details/recruitment_details.wxml-->
+<div class="body">
+  <div class="overviewCard">
+    <div class="companyOutline">
+      <div class="companyLogoContainer">
+        <image src="/images/dell-logo.svg" class="companyLogo"></image>
+      </div>
+      <div class="textBundle">
+        <div class="recruitmentName"><div class="itemCharacterTag">央企</div>HIHIHIHI</div>
+        <div class="companyName">CompanyName</div>
+        <div class="publishDate">Date</div>
+      </div>
+    </div>
+
+    <div class="companyHonor">
+      <image src="/images/dell-logo.svg" class="honorImg"></image>
+      <div class="honorText">HEHE</div>
+    </div>
+  </div>
+
+  <div class="characterCard">
+    <div class="tagBundle">
+      <div class="tags">HHH</div>
+    </div>
+    <div class="tagBundle">
+      <div class="tags">HHH</div>
+    </div>
+    <div class="tagBundle">
+      <div class="tags">HHH</div>
+    </div>
+  </div>
+
+  <div class="detailCard">
+    <div class="introBundle">
+      <div class="introTitle">Title</div>
+      <div class="introDetail">www</div>
+    </div>
+  </div>
+
+  <div class="detailCard">
+    <div class="introBundle">
+      <div class="introTitle">Title</div>
+      <div class="introDetail">www</div>
+    </div>
+  </div>
+</div>

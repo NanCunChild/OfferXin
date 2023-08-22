@@ -6,11 +6,12 @@ Page({
    */
   data: {
     value: "",
+    isReachMax:false,
+    isLoadingData:false,
     recruitment_items: [],
   },
   onSearch(event) {
     var unproc_recruitment_items = [];
-    var proc_recruitment_items = [];
     var that = this;
     if (event.detail == "") return;
     // 在页面或组件中的某个事件中调用云函数
@@ -57,12 +58,17 @@ Page({
       let day = dateParts[2];
       original[i].update_date = `${year}年${month}月${day}日`;
 
-      console.log(original[i]);
+      // console.log(original[i]);
     }
     this.setData({
       recruitment_items: original
     })
     return "ca"
+  },
+  goRecruitmentDetail(event){
+    wx.navigateTo({
+      url: '/pages/salaryDetail/salaryDetail?_id=' + event.currentTarget.dataset.id
+    })
   },
   goSalaryDetail(event) {
     wx.navigateTo({

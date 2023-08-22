@@ -16,7 +16,7 @@
       <block wx:for="{{recruitment_items}}" wx:key="_id" class="itemBlock">
         <div class="itemContainer">
           <div class="itemLogoContainer">
-            <image src="/images/avator.png" class="itemLogo"></image>
+            <image src="/images/dell-logo.svg" class="itemLogo"></image>
           </div>
           <div class="textBundle">
             <div class="itemTitle">

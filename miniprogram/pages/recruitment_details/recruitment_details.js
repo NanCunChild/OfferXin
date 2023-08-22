@@ -1,18 +1,18 @@
-// pages/recruitment_details.js
+// pages/recruitment_details/recruitment_details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    data_id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
   },
 
   /**

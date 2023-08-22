@@ -77,16 +77,18 @@ page {
 .itemTitle {
   display: flex;
   align-items: center;
+  font-weight: 600;
   font-size: 36rpx;
   color: #1d1d1d;
 }
 
 .itemCharacterTag {
   display: flex;
+  font-weight: 600;
   font-size: 21rpx;
   height: 28rpx;
   padding: 2rpx 4rpx 2rpx 4rpx;
-  margin: 1rpx 4rpx 1rpx 4rpx;
+  margin: 1rpx 8rpx 1rpx 4rpx;
   border-radius: 4rpx;
   background-color: #fd2f2fb7;
   color: #dedede;
