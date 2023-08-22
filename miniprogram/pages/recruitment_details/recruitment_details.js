@@ -5,16 +5,77 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data_id:""
+    data_id: "",
+    all_data: {},
+    locationSet: [],
+    posisionASet: [],
+    posisionBSet: [],
+    posisionCSet: [],
+    qualification_overseas: [],
+    qualification_domestics: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+    // console.log(options._id);
+    if(options==undefined) return
+    this.setData({
+      data_id: options._id
+    })
+    this.getDatabyId();
   },
 
+
+  getDatabyId() {
+    // console.log(this.data.data_id);
+    // console.log(typeof (this.data.data_id));
+    wx.cloud.callFunction({
+      name: 'getRecruitmentData',
+      data: {
+        action: "getDatabyId",
+        searchOn: this.data.data_id
+      },
+      success: async res => {
+        // console.log(res)
+        // // 在这里处理云函数返回的数据
+        // console.log(res.result)
+        this.dataProcessing(res.result[0]);
+      },
+      fail: err => {
+        console.error('云函数调用失败：', err)
+        // 在这里处理云函数调用失败的情况
+      }
+    })
+  },
+  dataProcessing(original) {
+    console.log(original)
+    original.location = original.location.split(",");
+    original.position_A = original.position_A.split(",");
+    original.position_B = original.position_B.split(",");
+    original.position_C = original.position_C.split(",");
+    original.qualification_overseas=original.qualification_overseas.split(",");
+    original.qualification_domestics=original.qualification_domestics.split(",");
+    this.setData({
+      all_data: original
+    })
+    console.log(this.all_data);
+  },
+  copyToClipboard(e){
+    console.log(e.currentTarget.dataset.copy)
+    if(e.currentTarget.dataset.copy==undefined) return;
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.copy,
+      success (res) {
+        wx.getClipboardData({
+          success (res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

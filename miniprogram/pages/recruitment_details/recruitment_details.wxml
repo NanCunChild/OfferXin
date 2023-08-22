@@ -1,46 +1,107 @@
 <!--pages/recruitment_details/recruitment_details.wxml-->
+<wxs src="../../stringUtils.wxs" module="stringUtils"></wxs>
 <div class="body">
+
   <div class="overviewCard">
     <div class="companyOutline">
       <div class="companyLogoContainer">
         <image src="/images/dell-logo.svg" class="companyLogo"></image>
       </div>
       <div class="textBundle">
-        <div class="recruitmentName"><div class="itemCharacterTag">央企</div>HIHIHIHI</div>
-        <div class="companyName">CompanyName</div>
-        <div class="publishDate">Date</div>
+        <div class="itemCharacterTagContainer">
+          <div class="itemCharacterTag {{all_data.company_character=='央企' ? 'CETag' : (all_data.company_character=='国企' ? 'SETag' : 'PETag')}}">{{all_data.company_character}}</div>
+          <div class="itemCharacterTag honorTag">{{all_data.is100==null ? '五百强企业' : '上市企业'}}</div>
+          <div class="itemCharacterTag creditTag">高信誉企业</div>
+        </div>
+
+        <div class="recruitmentName">{{stringUtils.subString(all_data.recruitment_name,0,12)+"..."}}</div>
+        <!-- {{stringUtils.subString(all_data.recruitment_name,0,15)+"..."}} -->
+        <div class="companyName">{{all_data.company_name}}</div>
+        <div class="publishDate">{{(all_data.update_date)}}</div>
       </div>
     </div>
 
     <div class="companyHonor">
       <image src="/images/dell-logo.svg" class="honorImg"></image>
-      <div class="honorText">HEHE</div>
+      <div class="honorText">612人浏览 12人咨询</div>
     </div>
   </div>
 
   <div class="characterCard">
-    <div class="tagBundle">
-      <div class="tags">HHH</div>
+    <div class="introBundle">
+      <div class="introTitle">总览</div>
     </div>
     <div class="tagBundle">
-      <div class="tags">HHH</div>
+      <div class="tagsClass">位置：</div>
+      <block class="tagsContainer" wx:for="{{all_data.location}}" wx:key="index">
+        <div class="tags">{{item}}</div>
+      </block>
+
     </div>
     <div class="tagBundle">
-      <div class="tags">HHH</div>
+      <div class="tagsClass">职位标签：</div>
+      <block class="tagsContainer" wx:for="{{all_data.position_A}}" wx:key="index">
+        <div class="tags">{{item}}</div>
+      </block>
+    </div>
+    <div class="tagBundle">
+      <div class="tagsClass">海外学历要求：</div>
+      <block class="tagsContainer" wx:for="{{all_data.qualification_overseas}}" wx:key="index">
+        <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
+      </block>
+    </div>
+    <div class="tagBundle">
+      <div class="tagsClass">国内学历要求：</div>
+      <block class="tagsContainer" wx:for="{{all_data.qualification_domestics}}" wx:key="index">
+        <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
+      </block>
     </div>
   </div>
 
   <div class="detailCard">
     <div class="introBundle">
-      <div class="introTitle">Title</div>
+      <div class="introTitle">公司简介</div>
       <div class="introDetail">www</div>
     </div>
   </div>
 
   <div class="detailCard">
     <div class="introBundle">
-      <div class="introTitle">Title</div>
-      <div class="introDetail">www</div>
+      <div class="introTitle">相关链接</div>
+      <div class="introDetail">
+
+        <div class="introPart">
+          <div class="introPartTitle">联系邮箱</div>
+          <div class="introPartClip">
+            <text class="introPartText" user-select="true">{{all_data.email==undefined ? '暂无相关信息' : all_data.href}}</text>
+            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.email}}">
+              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+            </div>
+          </div>
+        </div>
+
+        <div class="introPart">
+          <div class="introPartTitle">联系电话</div>
+          <div class="introPartClip">
+            <text class="introPartText" user-select="true">{{all_data.telephone==undefined ? '暂无相关信息' : all_data.href}}</text>
+            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.telephone}}">
+              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+            </div>
+          </div>
+        </div>
+
+        <div class="introPart">
+          <div class="introPartTitle">咨询链接</div>
+          <div class="introPartClip">
+            <text class="introPartText" user-select="true">{{all_data.href==undefined ? '暂无相关信息' : all_data.href}}</text>
+            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.href}}">
+              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
+  <!-- <button bindtap="getDatabyId">Only For Debug</button> -->
 </div>

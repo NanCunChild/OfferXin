@@ -11,9 +11,9 @@ Page({
     recruitment_items: [],
   },
   onSearch(event) {
-    var unproc_recruitment_items = [];
     var that = this;
     if (event.detail == "") return;
+    console.log(event.detail)
     // 在页面或组件中的某个事件中调用云函数
     wx.cloud.callFunction({
       name: 'getRecruitmentData',
@@ -24,9 +24,8 @@ Page({
       success: async res => {
         console.log(res)
         // 在这里处理云函数返回的数据
-        unproc_recruitment_items = res.result;
-        console.log(unproc_recruitment_items)
-        that.dataProcessing(unproc_recruitment_items)
+        console.log(res.result)
+        that.dataProcessing(res.result)
       },
       fail: err => {
         console.error('云函数调用失败：', err)
@@ -67,7 +66,7 @@ Page({
   },
   goRecruitmentDetail(event){
     wx.navigateTo({
-      url: '/pages/salaryDetail/salaryDetail?_id=' + event.currentTarget.dataset.id
+      url: '/pages/recruitment_details/recruitment_details?_id=' + 'b9d9c98264e1ee4102054a5a629841ac'
     })
   },
   goSalaryDetail(event) {
