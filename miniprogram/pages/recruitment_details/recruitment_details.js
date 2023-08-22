@@ -7,17 +7,14 @@ Page({
   data: {
     data_id: "",
     all_data: {},
-    locationSet: [],
-    posisionASet: [],
-    posisionBSet: [],
-    posisionCSet: [],
-    qualification_overseas: [],
-    qualification_domestics: [],
+    // locationSet: [],
+    // posisionASet: [],
+    // posisionBSet: [],
+    // posisionCSet: [],
+    // qualification_overseas: [],
+    // qualification_domestics: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
     // console.log(options._id);
     if(options==undefined) return
@@ -26,7 +23,6 @@ Page({
     })
     this.getDatabyId();
   },
-
 
   getDatabyId() {
     // console.log(this.data.data_id);

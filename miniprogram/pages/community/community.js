@@ -13,12 +13,11 @@ Page({
   onSearch(event) {
     var that = this;
     if (event.detail == "") return;
-    console.log(event.detail)
-    // 在页面或组件中的某个事件中调用云函数
+    // console.log(event.detail)
     wx.cloud.callFunction({
       name: 'getRecruitmentData',
       data: {
-        action: "getRecruitmentData",
+        action: "getDataTest", 
         searchOn: event.detail
       },
       success: async res => {
@@ -35,8 +34,6 @@ Page({
 
   },
   dataProcessing(original) {
-    // console.log("original:")
-    // console.log(original)
     for (let i = 0; i < original.length; i++) {
       //字符串 数组化
       original[i].location = original[i].location.split(',');
@@ -57,7 +54,6 @@ Page({
       let day = dateParts[2];
       original[i].update_date = `${year}年${month}月${day}日`;
 
-      // console.log(original[i]);
     }
     this.setData({
       recruitment_items: original

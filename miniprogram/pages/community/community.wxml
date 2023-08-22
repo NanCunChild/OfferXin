@@ -19,7 +19,7 @@
             <image src="/images/dell-logo.svg" class="itemLogo"></image>
           </div>
           <div class="textBundle">
-            <div class="itemTitle">
+            <div class="itemTitle"> 
               <div class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">{{item.company_character}}</div>
               {{stringUtils.subString(item.recruitment_name,0,15)+"..."}}
             </div>
