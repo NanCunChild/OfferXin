@@ -5,6 +5,45 @@ page {
   background-color: #d4d4d4;
 }
 
+.row_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.r_box{
+  width: 100%;
+  background: rgb(255, 255, 255);
+  opacity: 1;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  padding: 24rpx;
+  border-top: 1rpx solid #eee;
+  align-items: center;
+  z-index: 8;
+
+  display: flex;
+  justify-content: left;
+}
+.r_field{
+  width: 80%;
+  background-color: rgb(235, 235, 235);
+  border-radius: 25rpx;
+  padding: 16rpx;
+}
+.rb_box{
+  margin-left: 3%;
+}
+.r_button{
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #7e6f6f;
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+}
+
 .body {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +93,7 @@ page {
   /* border: blue 2rpx solid; */
 }
 
-.itemCharacterTagContainer{
+.itemCharacterTagContainer {
   display: flex;
   align-items: center;
   width: 98%;
@@ -76,19 +115,23 @@ page {
   color: #dedede;
 }
 
-.CETag{
+.CETag {
   background-color: #fd2f2fb7;
 }
-.PETag{
+
+.PETag {
   background-color: #4242ecde;
 }
-.SETag{
+
+.SETag {
   background-color: #4f8b42d0;
 }
-.honorTag{
+
+.honorTag {
   background-color: #ffb01ee7;
 }
-.creditTag{
+
+.creditTag {
   background-color: #58bb1fe7;
 }
 
@@ -168,10 +211,11 @@ page {
   color: #ececec;
 }
 
-.masterDegree{
+.masterDegree {
   background-color: #30aab3;
 }
-.doctorDegree{
+
+.doctorDegree {
   background-color: #b43434;
 }
 
@@ -184,8 +228,8 @@ page {
   width: 90%;
   background-color: #d6d6d6;
   border-radius: 10rpx;
-  margin: 20rpx 5rpx;
-  background: linear-gradient( rgb(255, 177, 33),#eeeeee); 
+  margin: 10rpx 5rpx;
+  background: linear-gradient(#bdf8f3, #eeeeee);
 }
 
 .honorImg {
@@ -206,6 +250,30 @@ page {
   font-size: 36rpx;
   font-weight: 500;
 }
+
+.controlPannelContainer {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  /* border: springgreen 2rpx solid; */
+  border-radius: 10rpx;
+  margin: 10rpx 5rpx 20rpx 5rpx;
+  justify-content: space-between;
+}
+
+.controlPannelItem {
+  display: flex;
+  margin: 10rpx 20rpx;
+  align-items: center;
+}
+
+.controlPannelImg {
+  display: flex;
+  width: 64rpx;
+  height: 64rpx;
+  margin: 2rpx 20rpx 2rpx 20rpx;
+}
+
 
 .detailCard {
   display: flex;
@@ -242,20 +310,23 @@ page {
   width: 98%;
   font-size: 24rpx;
 }
-.introPart{
+
+.introPart {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   align-items: center;
   margin: 20rpx 5rpx 10rpx 5rpx;
 }
-.introPartTitle{
+
+.introPartTitle {
   display: flex;
   width: 98%;
   align-items: center;
   margin: 5rpx 2rpx 10rpx 2rpx;
 }
-.introPartClip{
+
+.introPartClip {
   display: flex;
   background-color: #c7c7c765;
   width: 94%;
@@ -263,19 +334,143 @@ page {
   padding: 16rpx;
   border-radius: 5rpx;
 }
-.introPartClipBtnContainer{
+
+.introPartClipBtnContainer {
   display: flex;
   width: 38rpx;
   height: 38rpx;
   margin: 4rpx;
   margin-left: auto;
 }
-.introPartClipBtn{
+
+.introPartClipBtn {
   width: 32rpx;
   height: 32rpx;
 }
-.introPartText{
+
+.introPartText {
   max-width: 90%;
   white-space: nowrap;
   overflow: scroll;
+}
+
+.introGroupCard {
+  display: flex;
+  width: 100%;
+  height: 170rpx;
+  margin: 10rpx 2rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  /* border: #dedede 2rpx solid; */
+  border-radius: 20rpx;
+}
+
+.introGroupIconContainer {
+  display: flex;
+  margin: auto 6rpx auto 15rpx;
+}
+
+.introGroupIcon {
+  width: 81rpx;
+  height: 81rpx;
+  margin: 2rpx;
+}
+
+.introGroupTextBundle {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rpx 2rpx 2rpx 6rpx;
+}
+
+.introGroupName {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 32rpx;
+  margin: 10rpx 2rpx 10rpx 0rpx;
+  overflow: hidden;
+  color: #1d1d1d;
+}
+
+.introGroupDetail {
+  font-size: 24rpx;
+  display: flex;
+  margin-top: 5rpx;
+  overflow: hidden;
+  margin-right: auto;
+}
+
+.introGroupJoinContainer {
+  display: flex;
+  margin: 5rpx 20rpx 5rpx 10rpx;
+}
+
+.introGroupJoinBtn {
+  display: flex;
+  width: 140rpx;
+  height: 48rpx;
+  background-color: #df2b2b;
+  border-radius: 24rpx;
+  color: #fdfdfd;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupOverlayWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.groupOverlayCard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 520rpx;
+  height: 720rpx;
+  background-color: #f0f0f0;
+  border-radius: 40rpx;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.groupOverlayTitle {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  font-weight: 600;
+  margin: 28rpx 2rpx 10rpx 2rpx;
+  color: #111111;
+}
+
+.groupOverlayName {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  margin: 10rpx 2rpx;
+  color: #686868;
+}
+
+.groupOverlayQRCodeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 420rpx;
+  height: 420rpx;
+  /* border: #111111 2rpx solid; */
+  margin: 20rpx 2rpx;
+  background-color: #fcfcfc;
+}
+
+.groupOverlayQRCode {
+  display: flex;
+  width: 400rpx;
+  height: 400rpx;
 }

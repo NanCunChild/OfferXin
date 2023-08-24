@@ -28,6 +28,33 @@ page {
   z-index: 8;
 }
 
+.fliter{
+  z-index: 8;
+}
+
+.shareContainer[plain]{
+  z-index: 8;
+  position: fixed;
+  padding: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 24rpx;
+  bottom: 24rpx;
+  width: 81rpx;
+  height: 81rpx;
+  background-color: #fafafa;
+  border-radius: 40rpx;
+  box-shadow: 2rpx 2rpx 8rpx #7e6f6f;
+  border: none;
+}
+
+.shareImg{
+  display: flex;
+  width: 72rpx;
+  height: 72rpx;
+}
+
 .itemScroll {
   display: flex;
   justify-items: center;
@@ -48,7 +75,7 @@ page {
 .itemContainer {
   display: flex;
   width: 710rpx;
-  height: 120rpx;
+  height: 210rpx;
   margin: 30rpx 20rpx 30rpx 20rpx;
   position: relative;
   display: flex;
@@ -60,7 +87,7 @@ page {
 
 .itemLogoContainer {
   display: flex;
-  margin: 2rpx 10rpx 2rpx 20rpx;
+  margin: auto 6rpx auto 15rpx;
 }
 
 .itemLogo {
@@ -70,7 +97,9 @@ page {
 }
 
 .textBundle {
-  margin: 2rpx 2rpx 2rpx 10rpx;
+  width: 88%;
+  height: 85%;
+  margin: 2rpx 2rpx 2rpx 6rpx;
   align-items: center;
 }
 
@@ -78,7 +107,8 @@ page {
   display: flex;
   align-items: center;
   font-weight: 600;
-  font-size: 36rpx;
+  font-size: 30rpx;
+  margin: 10rpx 2rpx 10rpx 0rpx;
   color: #1d1d1d;
 }
 
@@ -109,6 +139,42 @@ page {
   margin-top: 5rpx;
 }
 
+.companyName{
+  margin: 0rpx 2rpx 2rpx 5rpx;
+}
+
+.itemLocations{
+  display: flex;
+}
+
+.itemDegrees{
+  display: flex;
+  margin-right: 10rpx;
+}
+
+.masterDegree{
+  background-color: #30aab3;
+}
+.doctorDegree{
+  background-color: #b43434;
+}
+
+
+.itemDegreeContainer{
+  display: flex;
+  align-items: center;
+}
+
+.itemDegree{
+  display: flex;
+  font-size: 24rpx;
+  padding: 4rpx 10rpx 4rpx 10rpx;
+  margin: 1rpx 4rpx 1rpx 4rpx;
+  border-radius: 6rpx;
+  background-color: #bdbdbdcc;
+  color: #ececec;
+}
+
 .itemLocationContainer{
   display: flex;
   align-items: center;
@@ -117,7 +183,7 @@ page {
 .itemLocation {
   display: flex;
   font-size: 24rpx;
-  padding: 2rpx 8rpx 2rpx 8rpx;
+  padding: 4rpx 10rpx 4rpx 10rpx;
   margin: 1rpx 4rpx 1rpx 4rpx;
   border-radius: 6rpx;
   background-color: #bdbdbdcc;
@@ -132,8 +198,7 @@ page {
 .itemWatchedContainer{
   display: flex;
   flex-wrap: nowrap;
-  margin-left: auto;
-  margin-top: 6rpx;
+  margin: 6rpx 10rpx 2rpx auto;
 }
 
 .itemWatchedImgContainer{
@@ -210,7 +275,27 @@ page {
   overflow: hidden;
 }
 
+.swipers{
+  display: flex;
+  height: 142rpx;
+}
+
 .m_image_box image {
   height: 140rpx;
   width: 100%;
+}
+
+.fliter_enterCha_icon{
+  display: flex;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.fliter_enterCha_container{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 320rpx;
+  justify-content: space-between;
+  margin: 20rpx 2rpx;
+  /* border: #7e6f6f 2rpx solid; */
 }

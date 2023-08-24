@@ -1,5 +1,80 @@
 <wxs src="../../stringUtils.wxs" module="stringUtils"></wxs>
-<van-search class="search_box" value="{{ value }}" clearable placeholder="请输入您想搜索的内容" bind:search="onSearch" />
+<page-meta page-style="{{ showDropdownMenu ? 'overflow: hidden;' : '' }}" />
+
+<van-sticky offset-top="{{ 50 }}">
+
+  <swiper class="swipers" interval="3000" duration="500" circular="true" autoplay="true">
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+      <image src="../../images/table_ad.png" />
+    </swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+      <image src="../../images/qq_ad.png" />
+    </swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+      <image src="../../images/table_ad.png" />
+    </swiper-item>
+  </swiper>
+
+  <div>
+    <van-search class="search_box" value="{{ value }}" clearable placeholder="请输入您想搜索的内容" bind:search="onSearch" />
+  </div>
+
+  <van-dropdown-menu class="fliter">
+    <van-dropdown-item id="sorts" bind:change="onFliterChange" title="筛选" id="fliter">
+      <van-cell title="公司性质">
+        <!-- <van-checkbox-group value="{{ enterprise_fliter }}" bind:change="onEnterpriseChaChange"> -->
+        <div class="fliter_enterCha_container">
+          <van-checkbox name="CE" use-icon-slot value="{{CE}}" bind:change="onCEChange">
+            <image slot="icon" src="{{CE ? '/images/CE_C.svg' : '/images/CE.svg'}}" class="fliter_enterCha_icon"></image>央企
+          </van-checkbox>
+          <van-checkbox name="SE" use-icon-slot value="{{SE}}" bind:change="onSEChange">
+            <image slot="icon" src="{{SE ? '/images/SE_C.svg' : '/images/SE.svg'}}" class="fliter_enterCha_icon"></image>国企
+          </van-checkbox>
+          <!-- <van-checkbox name="PE" use-icon-slot value="{{PE}}" bind:change="onPEChange">
+            <image slot="icon" src="{{PE ? '/images/PE_C.svg' : '/images/PE.svg'}}" class="fliter_enterCha_icon"></image>私企
+          </van-checkbox> -->
+          <!-- </van-checkbox-group> -->
+        </div>
+
+        <div class="fliter_enterCha_container">
+          <van-checkbox name="CE" use-icon-slot value="{{CE}}" bind:change="onCEChange">
+            <image slot="icon" src="{{CE ? '/images/CE_C.svg' : '/images/CE.svg'}}" class="fliter_enterCha_icon"></image>央企
+          </van-checkbox>
+          <van-checkbox name="SE" use-icon-slot value="{{SE}}" bind:change="onSEChange">
+            <image slot="icon" src="{{SE ? '/images/SE_C.svg' : '/images/SE.svg'}}" class="fliter_enterCha_icon"></image>国企
+          </van-checkbox>
+        </div>
+
+      </van-cell>
+      <van-cell title="城市选择 1" bindtap="onOpenCitySelect1">
+        <div>{{selectedCity1}}</div>
+      </van-cell>
+
+      <van-cell title="城市选择 2" bindtap="onOpenCitySelect2">
+        <div>{{selectedCity2}}</div>
+      </van-cell>
+
+      <view style="padding: 5px 16px;">
+        <van-button type="danger" block round bind:click="onClickFlitingBtn">
+          确认
+        </van-button>
+      </view>
+    </van-dropdown-item>
+    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" bind:change="onSortingChange" />
+  </van-dropdown-menu>
+</van-sticky>
+
+<van-popup show="{{ isShowCitySelect1}}" bind:close="onCloseCitySelect1" position="bottom">
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect1" value="{{selectedCity1}}" />
+</van-popup>
+
+<van-popup show="{{ isShowCitySelect2}}" bind:close="onCloseCitySelect2" position="bottom">
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect2" value="{{selectedCity2}}" />
+</van-popup>
+
+<button class="shareContainer" plain="true" open-type="share">
+  <image class="shareImg" src="/images/mine/share.png"></image>
+</button>
 
 <view class="middle">
   <view class='collumn_container center blank_top' wx:if="{{recuitment_items.length==0}}">
@@ -9,34 +84,52 @@
     <view class="subNullTip">如：小程序、上海+字节</view>
   </view>
   <view wx:else>
-    <!-- <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
-      <image src="../../images/table_ad.png" />
-    </view> -->
+
     <scroll-view scroll-y="true" class="itemScroll">
       <block wx:for="{{recruitment_items}}" wx:key="_id" class="itemBlock">
-        <div class="itemContainer">
+        <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}">
           <div class="itemLogoContainer">
-            <image src="/images/dell-logo.svg" class="itemLogo"></image>
+            <image src="{{item.logo==undefined ? '/images/dell-logo.svg' : item.logo}}" class="itemLogo"></image>
           </div>
           <div class="textBundle">
-            <div class="itemTitle"> 
+            <div class="itemTitle">
               <div class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">{{item.company_character}}</div>
-              {{stringUtils.subString(item.recruitment_name,0,15)+"..."}}
+              {{stringUtils.subString(item.recruitment_name,0,18)+"..."}}
             </div>
+
             <div class="itemDetail">
-              <div class="itemLocationContainer" wx:for="{{item.location_simple}}" wx:key="index">
-                <div class="itemLocation">{{item}}</div>
+              <div class="companyName">{{item.company_name}}</div>
+            </div>
+
+            <div class="itemDetail" style="justify-content:space-between">
+              <div class="itemLocations">
+                <div class="itemLocationContainer" wx:for="{{item.location_simple}}" wx:key="index">
+                  <div class="itemLocation ">{{item}}</div>
+                </div>
               </div>
+
+              <div class="itemDegrees">
+                <div class="itemDegreeContainer" wx:for="{{item.qualification_domestics}}" wx:key="index">
+                  <div class="itemDegree {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="itemDetail">
               <div class="itemPublishDate">{{item.update_date}} 发布</div>
               <div class="itemWatchedContainer">
-              115
-                <div class="itemWatchedImgContainer"><image src="../../images/Watched.png" class="itemWatchedImg"></image></div>
+                {{item.viewed==undefined ? randomNumber : item.viewed}}
+                <div class="itemWatchedImgContainer">
+                  <image src="../../images/Watched.png" class="itemWatchedImg"></image>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </block>
-      <button bindtap="goRecruitmentDetail">Only For Debug</button>
+      <!-- <button bindtap="goRecruitmentDetail">Only For Debug</button> -->
     </scroll-view>
 
     <!-- <view class="bottom" wx:if="{{isLoadingCommunities}}">加载中</view>

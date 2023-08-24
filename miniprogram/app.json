@@ -11,7 +11,8 @@
     "pages/mine/publishlist/publishlist",
     "pages/mine/help/help",
     "pages/register/register",
-    "pages/recruitment_details/recruitment_details"
+    "pages/recruitment_details/recruitment_details",
+    "pages/dev/dev"
   ],
   "window": {
     "navigationBarBackgroundColor": "#8DEEEE",

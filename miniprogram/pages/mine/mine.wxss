@@ -208,6 +208,11 @@
   overflow: hidden;
 }
 
+.swipers{
+  display: flex;
+  height: 142rpx;
+}
+
 .m_image_box image {
   height: 140rpx;
   width: 100%;

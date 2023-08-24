@@ -5,8 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    obj:{},
     data_id: "",
     all_data: {},
+    isGroupCodeShow: false,
+    isfavorited: false,
+    isCommentShow:false,
     // locationSet: [],
     // posisionASet: [],
     // posisionBSet: [],
@@ -17,7 +21,7 @@ Page({
 
   onLoad(options) {
     // console.log(options._id);
-    if(options==undefined) return
+    if (options == undefined) return
     this.setData({
       data_id: options._id
     })
@@ -51,30 +55,74 @@ Page({
     original.position_A = original.position_A.split(",");
     original.position_B = original.position_B.split(",");
     original.position_C = original.position_C.split(",");
-    original.qualification_overseas=original.qualification_overseas.split(",");
-    original.qualification_domestics=original.qualification_domestics.split(",");
+    original.qualification_overseas = original.qualification_overseas.split(",");
+    original.qualification_domestics = original.qualification_domestics.split(",");
     this.setData({
       all_data: original
     })
-    console.log(this.all_data);
+    console.log(original);
   },
-  copyToClipboard(e){
+  copyToClipboard(e) {
     console.log(e.currentTarget.dataset.copy)
-    if(e.currentTarget.dataset.copy==undefined) return;
+    if (e.currentTarget.dataset.copy == undefined) return;
     wx.setClipboardData({
       data: e.currentTarget.dataset.copy,
-      success (res) {
+      success(res) {
         wx.getClipboardData({
-          success (res) {
+          success(res) {
             console.log(res.data) // data
           }
         })
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  joinGroup() {
+    this.showGroupCode();
+  },
+  showGroupCode() {
+    this.setData({
+      isGroupCodeShow: true
+    })
+  },
+  hideGroupCode() {
+    this.setData({
+      isGroupCodeShow: false
+    })
+  },
+
+  onTapFavorite() {
+    if (this.data.isfavorited) {
+      this.setData({
+        isfavorited: false
+      })
+    }else{
+      this.setData({
+        isfavorited: true
+      })
+    }
+    this.setData({
+      ['obj.info.collects']: (this.data.obj.info.collects || 0) + (this.data.obj.info.collect ? -1 : 1),
+      ['obj.info.collect']: !this.data.obj.info.collect,
+    })
+    wx.cloud.callFunction({
+      name: 'salaryDetail',
+      data: {
+        funcName: 'collect',
+        _id: this.data.obj._id,
+        bool: this.data.obj.info.collect
+      }
+    })
+  },
+
+  onTapFeedback(){
+    this.setData({
+      isCommentShow:true
+    })
+  },
+
+  sortingData() {
+
+  },
   onReady() {
 
   },

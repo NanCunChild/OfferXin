@@ -1,5 +1,27 @@
 <!--pages/recruitment_details/recruitment_details.wxml-->
 <wxs src="../../stringUtils.wxs" module="stringUtils"></wxs>
+<van-overlay show="{{ isGroupCodeShow }}" bind:click="hideGroupCode">
+  Cause if tommorow brings something good
+  <div class="groupOverlayWrapper">
+    <div class="groupOverlayCard">
+      <div class="groupOverlayTitle">扫码入群</div>
+      <div class="groupOverlayName">{{all_data.groupName==undefined ? '公司交流发展 ① 群' : all_data.groupName}}</div>
+      <div class="groupOverlayQRCodeContainer">
+        <image src="/images/GroupCode.png" class="groupOverlayQRCode"></image>
+      </div>
+    </div>
+  </div>
+</van-overlay>
+
+<view class='row_container r_box' wx:if="{{isCommentShow==true}}">
+  <view class="r_field">
+    <input value="{{value}}" placeholder="请输入您的评论" bindconfirm="comment" bindinput="onInput" cursor-spacing="{{12}}" />
+  </view>
+  <view class="rb_box">
+    <button class="r_button" bindtap="comment">发布</button>
+  </view>
+</view>
+
 <div class="body">
 
   <div class="overviewCard">
@@ -23,7 +45,16 @@
 
     <div class="companyHonor">
       <image src="/images/dell-logo.svg" class="honorImg"></image>
-      <div class="honorText">612人浏览 12人咨询</div>
+      <div class="honorText">{{all_data.viewed==undefined ? '114' : all_data.viewed}}人浏览 {{all_data.consulted==undefined ? '13' : all_data.consulted}}人咨询</div>
+    </div>
+
+    <div class="controlPannelContainer">
+      <div class="controlPannelItem" bindtap="onTapFavorite">
+        <image src="{{isfavorited ? '/images/favorite_C.svg':'/images/favorite.svg'}}" class="controlPannelImg"></image>收藏
+      </div>
+      <div class="controlPannelItem" bindtap="onTapFeedback">
+        <image src="/images/feedback.svg" class="controlPannelImg"></image>评论
+      </div>
     </div>
   </div>
 
@@ -56,39 +87,13 @@
         <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
       </block>
     </div>
-  </div>
 
-  <div class="detailCard">
-    <div class="introBundle">
-      <div class="introTitle">公司简介</div>
-      <div class="introDetail">www</div>
-    </div>
   </div>
 
   <div class="detailCard">
     <div class="introBundle">
       <div class="introTitle">相关链接</div>
       <div class="introDetail">
-
-        <div class="introPart">
-          <div class="introPartTitle">联系邮箱</div>
-          <div class="introPartClip">
-            <text class="introPartText" user-select="true">{{all_data.email==undefined ? '暂无相关信息' : all_data.href}}</text>
-            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.email}}">
-              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
-            </div>
-          </div>
-        </div>
-
-        <div class="introPart">
-          <div class="introPartTitle">联系电话</div>
-          <div class="introPartClip">
-            <text class="introPartText" user-select="true">{{all_data.telephone==undefined ? '暂无相关信息' : all_data.href}}</text>
-            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.telephone}}">
-              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
-            </div>
-          </div>
-        </div>
 
         <div class="introPart">
           <div class="introPartTitle">咨询链接</div>
@@ -100,8 +105,34 @@
           </div>
         </div>
 
+        <div class="introPart">
+          <div class="introGroupCard">
+            <div class="introGroupIconContainer">
+              <image src="{{all_data.groupIcon==undefined ? '/images/dell-logo.svg' : all_data.groupIcon}}" class="introGroupIcon"></image>
+            </div>
+            <div class="introGroupTextBundle">
+              <div class="introGroupName">{{all_data.groupName==undefined ? '公司发展交流 ① 群' : all_data.groupName}}</div>
+              <div class="introGroupDetail">{{all_data.groupDetail==undefined ? '微信交流群' : all_data.groupDetail}}</div>
+            </div>
+            <div class="introGroupJoinContainer">
+              <div class="introGroupJoinBtn" bindtap="joinGroup">加入群聊</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="detailCard">
+    <div class="introBundle">
+      <div class="introTitle">公司简介</div>
+      <div class="introDetail">
+        <div class="introPart">{{all_data.overview==undefined ? '我们是一个有着独特视角的多元化团队。统一的目标、战略和文化让我们团结一心，并肩前进。我们壮志凌云，致力于依靠技术的力量推动人类进步。我们矢志不渝，努力创造平等、信任和相互支持的环境。' : all_data.overview}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- <button bindtap="getDatabyId">Only For Debug</button> -->
 </div>

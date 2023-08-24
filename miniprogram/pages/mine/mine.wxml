@@ -22,9 +22,11 @@
 
 <view class="blank"></view>
 
-<view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
-  <image src="../../images/qq_ad.png" />
-</view>
+<swiper class="swipers" interval="3000" duration="500" circular="true" autoplay="true">
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/table_ad.png" /></swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/qq_ad.png" /></swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/table_ad.png" /></swiper-item>
+  </swiper>
 
 <view class="bottom_box">
   <view class="bottom_card" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
