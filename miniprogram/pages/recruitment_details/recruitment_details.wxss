@@ -5,13 +5,14 @@ page {
   background-color: #d4d4d4;
 }
 
-.row_container{
+.row_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.r_box{
+
+.r_box {
   width: 100%;
   background: rgb(255, 255, 255);
   opacity: 1;
@@ -26,16 +27,19 @@ page {
   display: flex;
   justify-content: left;
 }
-.r_field{
+
+.r_field {
   width: 80%;
   background-color: rgb(235, 235, 235);
   border-radius: 25rpx;
   padding: 16rpx;
 }
-.rb_box{
+
+.rb_box {
   margin-left: 3%;
 }
-.r_button{
+
+.r_button {
   font-size: 24rpx;
   font-weight: 600;
   color: #7e6f6f;
@@ -207,15 +211,23 @@ page {
   padding: 2rpx 8rpx 2rpx 8rpx;
   margin: 6rpx 4rpx 1rpx 4rpx;
   border-radius: 6rpx;
-  background-color: #bdbdbdcc;
-  color: #ececec;
+  /* background-color: #bdbdbdcc; */
+  /* color: #ececec; */
+  color: #e41e1e;
+  border: #e41e1e 2rpx solid;
 }
 
 .masterDegree {
+  background-color: #bdbdbdcc;
+  color: #ececec;
+  border: 2rpx transparent solid;
   background-color: #30aab3;
 }
 
 .doctorDegree {
+  background-color: #bdbdbdcc;
+  color: #ececec;
+  border: 2rpx transparent solid;
   background-color: #b43434;
 }
 

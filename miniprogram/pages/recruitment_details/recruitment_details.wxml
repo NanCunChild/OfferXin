@@ -105,6 +105,26 @@
           </div>
         </div>
 
+        <div class="introPart" wx:if="{{all_data.internalURL!=undefined}}">
+          <div class="introPartTitle">内推链接</div>
+          <div class="introPartClip">
+            <text class="introPartText" user-select="true">{{all_data.internalURL==undefined ? '暂无相关信息' : all_data.internalURL}}</text>
+            <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.internalURL}}">
+              <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+            </div>
+          </div>
+          <block wx:if="{{all_data.internalURLCode!=undefined}}">
+            <div class="introPartTitle">内推码</div>
+            <div class="introPartClip">
+              <text class="introPartText" user-select="true">{{all_data.internalURLCode==undefined ? '暂无相关信息' : all_data.internalURLCode}}</text>
+              <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.internalURLCode}}">
+                <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+              </div>
+            </div>
+          </block>
+
+        </div>
+
         <div class="introPart">
           <div class="introGroupCard">
             <div class="introGroupIconContainer">

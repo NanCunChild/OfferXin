@@ -152,14 +152,6 @@ page {
   margin-right: 10rpx;
 }
 
-.masterDegree{
-  background-color: #30aab3;
-}
-.doctorDegree{
-  background-color: #b43434;
-}
-
-
 .itemDegreeContainer{
   display: flex;
   align-items: center;
@@ -171,8 +163,15 @@ page {
   padding: 4rpx 10rpx 4rpx 10rpx;
   margin: 1rpx 4rpx 1rpx 4rpx;
   border-radius: 6rpx;
-  background-color: #bdbdbdcc;
+  background-color: #a3a3a3cc;
   color: #ececec;
+}
+
+.masterDegree{
+  background-color: #30aab3;
+}
+.doctorDegree{
+  background-color: #b43434;
 }
 
 .itemLocationContainer{
@@ -186,7 +185,7 @@ page {
   padding: 4rpx 10rpx 4rpx 10rpx;
   margin: 1rpx 4rpx 1rpx 4rpx;
   border-radius: 6rpx;
-  background-color: #bdbdbdcc;
+  background-color: #a8a8a8cc;
   color: #ececec;
 }
 

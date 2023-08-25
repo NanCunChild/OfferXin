@@ -428,6 +428,10 @@ Page({
     SE: false,
     CE: false,
     PE: false,
+    GE: false,
+    FE: false,
+    SO: false,
+    OT: false,
     randomNumber: parseInt(Math.random() * 100),
     option1: [{
         text: '全部',
@@ -589,6 +593,32 @@ Page({
       PE: event.detail
     })
   },
+
+  onFEChange(event) {
+    this.setData({
+      FE: event.detail
+    })
+  },
+  onGEChange(event) {
+    this.setData({
+      GE: event.detail
+    })
+  },
+  onSOChange(event) {
+    this.setData({
+      SO: event.detail
+    })
+  },
+  onOTChange(event) {
+    this.setData({
+      OT: event.detail
+    })
+  },
+
+
+
+
+
   onSortingChange(event) {
     if (event == undefined) return;
     else if (event.detail == 'time') this.sortingbyUpdateDate();
@@ -641,12 +671,20 @@ Page({
   },
 
   onConfirmCitySelect1(event) {
-    // console.log(event.detail.values);
-    this.setData({
-      isShowCitySelect1: false,
-      selectedCity1: event.detail.values[0].name == event.detail.values[1].name ? event.detail.values[0].name : event.detail.values[0].name + " " + event.detail.values[1].name,
-    })
-    console.log(this.data.selectedCity1)
+    console.log(event.detail);
+    if (event.detail.values[1] == undefined) {
+      this.setData({
+        isShowCitySelect1: false,
+      })
+      return;
+    } else {
+      this.setData({
+        isShowCitySelect1: false,
+        selectedCity1: event.detail.values[0].name == event.detail.values[1].name ? event.detail.values[0].name : event.detail.values[0].name + " " + event.detail.values[1].name,
+      })
+      console.log(this.data.selectedCity1)
+    }
+
   },
 
   onConfirmCitySelect2(event) {
@@ -664,11 +702,11 @@ Page({
     let sc2 = this.data.selectedCity2;
     if (event == undefined) return;
     this.setData({
-      selectedCity: [sc1=="" ? "" : (sc1.split(" ")[1].replace(/市$/, "")), sc2=="" ? "" : (sc2.split(" ")[1].replace(/市$/, ""))]
+      selectedCity: [sc1 == "" ? "" : (sc1.split(" ")[1].replace(/市$/, "")), sc2 == "" ? "" : (sc2.split(" ")[1].replace(/市$/, ""))]
     })
     console.log(this.data.selectedCity);
-    console.log("央企:" + this.data.CE);
-    console.log("国企:" + this.data.SE);
+    // console.log("央企:" + this.data.CE);
+    // console.log("国企:" + this.data.SE);
     this.selectComponent('#fliter').toggle();
     wx.cloud.callFunction({
       name: 'getRecruitmentData',
@@ -677,6 +715,10 @@ Page({
         searchOn: that.data.searchKey,
         CE: (this.data.CE ? '央企' : '民企'),
         SE: (this.data.SE ? '国企' : '民企'),
+        FE: (this.data.FE ? '外企' : '民企'),
+        GE: (this.data.GE ? '政府' : '民企'),
+        SO: (this.data.SO ? '社会组织' : '民企'),
+        OT: (this.data.OT ? '' : '民企'),
         cityFliter: this.data.selectedCity,
       },
       success: async res => {
@@ -691,7 +733,10 @@ Page({
   },
 
   onLoad(options) {
-
+    let a = {
+      detail: ""
+    };
+    this.onSearch(a);
   },
 
 
