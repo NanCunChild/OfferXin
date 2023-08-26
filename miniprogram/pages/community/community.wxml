@@ -25,14 +25,14 @@
         <!-- <van-checkbox-group value="{{ enterprise_fliter }}" bind:change="onEnterpriseChaChange"> -->
         <div class="fliter_enterCha_container">
           <van-checkbox name="CE" use-icon-slot value="{{CE}}" bind:change="onCEChange">
-            <image slot="icon" src="{{CE ? '/images/CE_C.svg' : '/images/CE.svg'}}" class="fliter_enterCha_icon"></image>央企
+            <image slot="icon" src="{{CE ? '/images/CE_C.svg' : '/images/CE.svg'}}" class="fliter_enterCha_icon"></image>央/国企
           </van-checkbox>
-          <van-checkbox name="SE" use-icon-slot value="{{SE}}" bind:change="onSEChange">
+          <!-- <van-checkbox name="SE" use-icon-slot value="{{SE}}" bind:change="onSEChange">
             <image slot="icon" src="{{SE ? '/images/SE_C.svg' : '/images/SE.svg'}}" class="fliter_enterCha_icon"></image>国企
-          </van-checkbox>
-          <!-- <van-checkbox name="PE" use-icon-slot value="{{PE}}" bind:change="onPEChange">
-            <image slot="icon" src="{{PE ? '/images/PE_C.svg' : '/images/PE.svg'}}" class="fliter_enterCha_icon"></image>私企
           </van-checkbox> -->
+          <van-checkbox name="PE" use-icon-slot value="{{PE}}" bind:change="onPEChange">
+            <image slot="icon" src="{{PE ? '/images/PE_C.svg' : '/images/PE.svg'}}" class="fliter_enterCha_icon"></image>私企
+          </van-checkbox>
           <!-- </van-checkbox-group> -->
         </div>
 
@@ -74,11 +74,11 @@
 </van-sticky>
 
 <van-popup show="{{ isShowCitySelect1}}" bind:close="onCloseCitySelect1" position="bottom">
-  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect1" value="{{selectedCity1}}"  columns-placeholder="{{ ['不筛选', '']}}"/>
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect1" value="{{selectedCity1}}"  columns-placeholder="{{ ['不限', '']}}"/>
 </van-popup>
 
 <van-popup show="{{ isShowCitySelect2}}" bind:close="onCloseCitySelect2" position="bottom">
-  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect2" value="{{selectedCity2}}"  columns-placeholder="{{ ['不筛选', '']}}"/>
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect2" value="{{selectedCity2}}"  columns-placeholder="{{ ['不限', '']}}"/>
 </van-popup>
 
 <button class="shareContainer" plain="true" open-type="share">
@@ -96,7 +96,7 @@
 
     <scroll-view scroll-y="true" class="itemScroll">
       <block wx:for="{{recruitment_items}}" wx:key="_id" class="itemBlock">
-        <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}">
+        <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}" data-viewdata="{{item.viewData}}" data-index="">
           <div class="itemLogoContainer">
             <image src="{{item.logo==undefined ? '/images/dell-logo.svg' : item.logo}}" class="itemLogo"></image>
           </div>
@@ -128,7 +128,7 @@
             <div class="itemDetail">
               <div class="itemPublishDate">{{item.update_date}} 发布</div>
               <div class="itemWatchedContainer">
-                {{item.viewed==undefined ? randomNumber : item.viewed}}
+                {{item.viewData==undefined ? 0 : item.viewData}}
                 <div class="itemWatchedImgContainer">
                   <image src="../../images/Watched.png" class="itemWatchedImg"></image>
                 </div>

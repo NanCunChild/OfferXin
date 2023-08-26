@@ -36,7 +36,8 @@
           <div class="itemCharacterTag creditTag">高信誉企业</div>
         </div>
 
-        <div class="recruitmentName">{{stringUtils.subString(all_data.recruitment_name,0,12)+"..."}}</div>
+        <!-- <div class="recruitmentName">{{stringUtils.subString(all_data.recruitment_name,0,12)+"..."}}</div> -->
+        <div class="recruitmentName">{{all_data.recruitment_name}}</div>
         <!-- {{stringUtils.subString(all_data.recruitment_name,0,15)+"..."}} -->
         <div class="companyName">{{all_data.company_name}}</div>
         <div class="publishDate">{{(all_data.update_date)}}</div>
@@ -54,6 +55,10 @@
       </div>
       <div class="controlPannelItem" bindtap="onTapFeedback">
         <image src="/images/feedback.svg" class="controlPannelImg"></image>评论
+      </div>
+      <div class="controlPannelItem" bindtap="onTapForward">
+      <button type="plain" open-type="share" class="controlButton"><div style="display: flex; align-items: center;"><image src="/images/Forward.svg" class="controlPannelImg"></image>转发</div></button>
+        
       </div>
     </div>
   </div>

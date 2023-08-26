@@ -616,9 +616,6 @@ Page({
   },
 
 
-
-
-
   onSortingChange(event) {
     if (event == undefined) return;
     else if (event.detail == 'time') this.sortingbyUpdateDate();
@@ -626,6 +623,29 @@ Page({
     else if (event.detail == 'treat') this.sortingbyUpdateSalary();
   },
   goRecruitmentDetail(event) {
+    console.log(event);
+    var viewData = event.currentTarget.dataset.viewdata || 0;
+    var _id = event.currentTarget.dataset._id;
+    var index = this.data.recruitment_items.findIndex(item => item._id === _id);
+    console.log("index的值为："+index)
+    console.log(viewData);
+    this.setData({
+      [`recruitment_items[${index}].viewData`]: viewData+1,
+    })
+    wx.cloud.callFunction({
+      name: 'getRecruitmentData', // 云函数的名称
+      data: {
+        action: "viewData",
+        _id: _id,
+        viewData: viewData + 1
+      },
+      success: res => {
+        console.log("数据写入成功", res);
+      },
+      fail: err => {
+        console.error("数据写入失败", err);
+      }
+    });
     wx.navigateTo({
       url: '/pages/recruitment_details/recruitment_details?_id=' + event.currentTarget.dataset._id
     })
@@ -675,6 +695,7 @@ Page({
     if (event.detail.values[1] == undefined) {
       this.setData({
         isShowCitySelect1: false,
+        selectedCity1:""
       })
       return;
     } else {
@@ -689,11 +710,20 @@ Page({
 
   onConfirmCitySelect2(event) {
     // console.log(event.detail.values);
-    this.setData({
-      isShowCitySelect2: false,
-      selectedCity2: event.detail.values[0].name == event.detail.values[1].name ? event.detail.values[0].name : event.detail.values[0].name + " " + event.detail.values[1].name,
-    })
-    console.log(this.data.selectedCity2)
+    if (event.detail.values[1] == undefined) {
+      this.setData({
+        isShowCitySelect2: false,
+        selectedCity2:""
+      })
+      return;
+    } else {
+      this.setData({
+        isShowCitySelect2: false,
+        selectedCity2: event.detail.values[0].name == event.detail.values[1].name ? event.detail.values[0].name : event.detail.values[0].name + " " + event.detail.values[1].name,
+      })
+      console.log(this.data.selectedCity2)
+    }
+
   },
 
   onClickFlitingBtn(event) {
@@ -702,7 +732,7 @@ Page({
     let sc2 = this.data.selectedCity2;
     if (event == undefined) return;
     this.setData({
-      selectedCity: [sc1 == "" ? "" : (sc1.split(" ")[1].replace(/市$/, "")), sc2 == "" ? "" : (sc2.split(" ")[1].replace(/市$/, ""))]
+      selectedCity: [sc1 == "" || undefined ? "" : (sc1.split(" ")[1] == undefined ? (sc1.split(" ")[0].replace(/市$/, "")) : (sc1.split(" ")[1].replace(/市$/, ""))), sc2 == "" || undefined ? "" : (sc2.split(" ")[1] == undefined ? (sc2.split(" ")[0].replace(/市$/, "")) : (sc2.split(" ")[1].replace(/市$/, "")))]
     })
     console.log(this.data.selectedCity);
     // console.log("央企:" + this.data.CE);
@@ -713,12 +743,13 @@ Page({
       data: {
         action: "getRecruitmentDataFlitering",
         searchOn: that.data.searchKey,
-        CE: (this.data.CE ? '央企' : '民企'),
-        SE: (this.data.SE ? '国企' : '民企'),
-        FE: (this.data.FE ? '外企' : '民企'),
-        GE: (this.data.GE ? '政府' : '民企'),
-        SO: (this.data.SO ? '社会组织' : '民企'),
-        OT: (this.data.OT ? '' : '民企'),
+        CE: (this.data.CE ? '央企' : ''),
+        SE: (this.data.CE ? '国企' : ''),
+        PE: (this.data.PE ? '民企' : ''),
+        FE: (this.data.FE ? '外企' : ''),
+        GE: (this.data.GE ? '政府' : ''),
+        SO: (this.data.SO ? '社会组织' : ''),
+        OT: (this.data.OT ? '' : ''),
         cityFliter: this.data.selectedCity,
       },
       success: async res => {

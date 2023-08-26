@@ -92,8 +92,8 @@ page {
   flex-wrap: wrap;
   width: auto;
 
-  height: 152rpx;
-  margin: 20rpx 2rpx 10rpx 2rpx;
+  height: 189rpx;
+  margin: 20rpx 2rpx 2rpx 2rpx;
   /* border: blue 2rpx solid; */
 }
 
@@ -142,26 +142,26 @@ page {
 .recruitmentName {
   display: flex;
   width: 98%;
-  height: 52rpx;
+  height: 90rpx;
   overflow: hidden;
   font-weight: 600;
   align-items: center;
-  font-size: 42rpx;
+  font-size: 34rpx;
   width: 98%;
 }
 
 .companyName {
   display: flex;
-  height: 42rpx;
+  height: auto;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 25rpx;
   color: #adadad;
 }
 
 .publishDate {
   display: flex;
   align-items: center;
-  font-size: 18rpx;
+  font-size: 20rpx;
   color: #b4b4b4;
   margin-left: auto;
   margin-right: 20rpx;
@@ -210,11 +210,14 @@ page {
   align-items: center;
   padding: 2rpx 8rpx 2rpx 8rpx;
   margin: 6rpx 4rpx 1rpx 4rpx;
-  border-radius: 6rpx;
+  border-radius: 8rpx;
   /* background-color: #bdbdbdcc; */
   /* color: #ececec; */
-  color: #e41e1e;
-  border: #e41e1e 2rpx solid;
+  /* color: #e41e1e;
+  border: #e41e1e 2rpx solid; */
+
+  color: #3b3b3b;
+  border: #3b3b3b 2rpx solid;
 }
 
 .masterDegree {
@@ -259,7 +262,7 @@ page {
   white-space: nowrap;
   overflow: hidden;
   align-items: center;
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: 500;
 }
 
@@ -276,13 +279,30 @@ page {
 .controlPannelItem {
   display: flex;
   margin: 10rpx 20rpx;
+  font-size: 28rpx;
   align-items: center;
+  flex-wrap: nowrap;
+}
+
+.controlButton::after {
+  flex-wrap: nowrap;
+  padding: 0rpx;
+  border: none;
+}
+
+.controlButton {
+  background-color: transparent;
+  font-size: 28rpx;
+  align-items: center;
+  color: #5f5f5f;
+  flex-wrap: nowrap;
+  width: 200rpx;
 }
 
 .controlPannelImg {
   display: flex;
-  width: 64rpx;
-  height: 64rpx;
+  width: 48rpx;
+  height: 48rpx;
   margin: 2rpx 20rpx 2rpx 20rpx;
 }
 
