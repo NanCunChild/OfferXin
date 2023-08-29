@@ -13,7 +13,7 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
-- <img src="https://github.com/NanCunChild/IMGS/ChaChaXin/1.png" alt="查查薪界面图 1" width="200">
+- <img src="https://github.com/NanCunChild/IMGS/blob/main/ChaChaXin/1.png" alt="查查薪界面图 1" width="200">
 - <img src="https://github.com/NanCunChild/IMGS/ChaChaXin/2.png" alt="查查薪界面图 2" width="200">
 - <img src="https://github.com/NanCunChild/IMGS/ChaChaXin/3.png" alt="查查薪界面图 3" width="200">
 
