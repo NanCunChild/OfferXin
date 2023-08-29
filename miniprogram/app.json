@@ -25,19 +25,19 @@
     "list": [
       {
         "pagePath": "pages/publish/publish",
-        "text": "爆料",
+        "text": "薪资爆料",
         "iconPath": "/images/tabbar/publish.png",
         "selectedIconPath": "/images/tabbar/publish_o.png"
       },
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "薪资查询",
         "iconPath": "/images/tabbar/home.png",
         "selectedIconPath": "/images/tabbar/home_o.png"
       },
       {
         "pagePath": "pages/community/community",
-        "text": "校招",
+        "text": "校招合集",
         "iconPath": "/images/tabbar/community.png",
         "selectedIconPath": "/images/tabbar/community_o.png"
       },

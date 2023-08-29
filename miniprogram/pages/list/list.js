@@ -12,6 +12,7 @@ Page({
     communities: [],
     active: 0,
 
+    isGoTopShow: false,
     isLoadingSalaries: false,
     isSalariesMax: false,
     isLoadingCommunities: false,
@@ -64,14 +65,14 @@ Page({
           })
           wx.hideLoading()
         });
-        
+
         break
       case 1:
         if (this.data.isCommunitiesMax) break //最大限制
         wx.showLoading({
           title: '数据加载中...',
         })
-    
+
 
         this.setData({
           isLoadingCommunities: true
@@ -103,6 +104,19 @@ Page({
       default:
         console.log("wrong active, active = " + active)
     }
+  },
+  onPageScroll:function(e) {
+    // console.log(e);
+    let isTop = e.scrollTop > 100;
+    // console.log(isTop);
+    this.setData({
+      isGoTopShow: isTop
+    })
+  },
+  goTop() {
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
   },
   goSalaryDetail(event) {
     wx.navigateTo({

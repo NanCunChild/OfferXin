@@ -151,6 +151,7 @@ page {
 }
 
 .companyName {
+  font-weight: 600;
   display: flex;
   height: auto;
   align-items: center;

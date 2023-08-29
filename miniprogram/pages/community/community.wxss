@@ -147,17 +147,17 @@ page {
   display: flex;
 }
 
-.itemDegrees{
+.item_recruitment_targets{
   display: flex;
   margin-right: 10rpx;
 }
 
-.itemDegreeContainer{
+.item_recruitment_target_container{
   display: flex;
   align-items: center;
 }
 
-.itemDegree{
+.recruitment_target{
   display: flex;
   font-size: 24rpx;
   padding: 4rpx 10rpx 4rpx 10rpx;
@@ -167,10 +167,10 @@ page {
   color: #ececec;
 }
 
-.masterDegree{
+.recruitment_in_compus{
   background-color: #30aab3;
 }
-.doctorDegree{
+.recruitment_in_intership{
   background-color: #b43434;
 }
 
@@ -190,14 +190,14 @@ page {
 }
 
 .itemPublishDate {
-  padding: 2rpx 8rpx 2rpx 8rpx;
+  padding: 2rpx 8rpx 2rpx 2rpx;
   margin: 1rpx 4rpx 1rpx 4rpx;
 }
 
 .itemWatchedContainer{
   display: flex;
   flex-wrap: nowrap;
-  margin: 6rpx 10rpx 2rpx auto;
+  margin: 6rpx 18rpx 2rpx auto;
 }
 
 .itemWatchedImgContainer{
@@ -207,8 +207,8 @@ page {
 }
 
 .itemWatchedImg{
-  height: 16rpx;
-  width: 21rpx;
+  height: 20rpx;
+  width: 28rpx;
 }
 
 .bottom {

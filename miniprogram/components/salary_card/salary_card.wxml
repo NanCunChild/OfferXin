@@ -2,7 +2,7 @@
 <view class="item_box" bindtap="show">
   <view class="row_container row2">
     <view class="avator">
-      <image src="{{item.avator || '../../images/avator.png'}}" />
+      <image src="{{item.avator || '/images/avator.png'}}" style="width: 32rpx; height: 32rpx;"/>
     </view>
     <view class="left cut_text position">
       <view class="row_container">

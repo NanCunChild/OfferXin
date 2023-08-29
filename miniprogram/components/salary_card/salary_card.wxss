@@ -51,15 +51,15 @@
   margin: 0 8rpx;
 }
 .row3{
-  height: 70rpx;
-  background-color: rgb(236, 236, 236);
+  height: 52rpx;
+  background-color: #ececec;
   border-radius: 20rpx;
   padding: 0 20rpx;
   margin-bottom: 15rpx;
 }
 .remark{
   font-weight: 550;
-  font-size: 30rpx;
+  font-size: 26rpx;
   color: #7e6f6f;
 }
 .row4{

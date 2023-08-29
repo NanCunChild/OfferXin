@@ -74,11 +74,11 @@
 </van-sticky>
 
 <van-popup show="{{ isShowCitySelect1}}" bind:close="onCloseCitySelect1" position="bottom">
-  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect1" value="{{selectedCity1}}"  columns-placeholder="{{ ['不限', '']}}"/>
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect1" value="{{selectedCity1}}" columns-placeholder="{{ ['不限', '']}}" />
 </van-popup>
 
 <van-popup show="{{ isShowCitySelect2}}" bind:close="onCloseCitySelect2" position="bottom">
-  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect2" value="{{selectedCity2}}"  columns-placeholder="{{ ['不限', '']}}"/>
+  <van-area area-list="{{ areaList }}" columns-num="{{ 2 }}" title="选择一个城市" bind:confirm="onConfirmCitySelect2" value="{{selectedCity2}}" columns-placeholder="{{ ['不限', '']}}" />
 </van-popup>
 
 <button class="shareContainer" plain="true" open-type="share">
@@ -117,16 +117,16 @@
                 </div>
               </div>
 
-              <div class="itemDegrees">
-                <div class="itemDegreeContainer" wx:for="{{item.qualification_domestics}}" wx:key="index">
-                  <div class="itemDegree {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : 'itemDegree')}}">{{item}}</div>
+              <div class="item_recruitment_targets">
+                <div class="item_recruitment_target_container" wx:for="{{item.recruitment_target}}" wx:key="index">
+                  <div class="recruitment_target {{item=='校招' ? 'recruitment_in_compus' : (item=='实习' ? 'recruitment_in_intership' : '')}}">{{item}}</div>
                 </div>
               </div>
 
             </div>
 
             <div class="itemDetail">
-              <div class="itemPublishDate">{{item.update_date}} 发布</div>
+              <div class="itemPublishDate">更新时间 {{item.update_date}}</div>
               <div class="itemWatchedContainer">
                 {{item.viewData==undefined ? 0 : item.viewData}}
                 <div class="itemWatchedImgContainer">

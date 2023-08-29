@@ -2,6 +2,8 @@
 
 <van-search class="search_box" value="{{ value }}" clearable placeholder="如：上海+字节" bind:search="onSearch" />
 
+<view class="backToTopBtn" bindtap="goTop" hidden="{{!isGoTopShow}}"><image src="/images/GoTop.svg" class="backToTopImg"></image></view>
+
 <view class="middle">
   <block wx:if="{{active==0}}">
     <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
@@ -15,7 +17,6 @@
       <block wx:for="{{salaries}}" wx:key="_id">
         <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
       </block>
-
       <view class="bottom" wx:if="{{isLoadingSalaries}}">加载中</view>
       <view class="bottom" wx:if="{{isSalariesMax}}">到底啦</view>
     </view>

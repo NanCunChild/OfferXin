@@ -55,3 +55,23 @@ page{
   height: 140rpx;
   width: 100%;
 }
+
+.backToTopBtn{
+  display: flex;
+  z-index: 8;
+  position: fixed;
+  right: 60rpx;
+  bottom: 210rpx;
+  width: 81rpx;
+  height: 81rpx;
+  background-color: #f1f1f1;
+  border-radius: 50rpx;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3rpx 6rpx 12rpx 2rpx #949494;
+}
+.backToTopImg{
+  display: flex;
+  width: 52rpx;
+  height: 52rpx;
+}
