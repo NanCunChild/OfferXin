@@ -10,6 +10,7 @@
         clearable
         placeholder="公司名称"
         bind:click-icon="onClickIcon"
+        value="{{companyName}}"
       />
 
       <view class="label"><van-icon name="manager-o" size="40rpx"/> 岗位</view>
@@ -17,6 +18,7 @@
         clearable
         placeholder="岗位名称"
         bind:click-icon="onClickIcon"
+        value="{{occupasion}}"
       />
 
       <view class="label"><van-icon name="location-o" size="40rpx"/> 城市</view>
@@ -24,6 +26,7 @@
         clearable
         placeholder="岗位所在城市"
         bind:click-icon="onClickIcon"
+        value="{{city}}"
       />
 
       <view class="label"><van-icon name="balance-o" size="40rpx"/> 薪资</view>
@@ -31,6 +34,7 @@
         clearable
         placeholder="薪资详情，如 30w 或者 15*15"
         bind:click-icon="onClickIcon"
+        value="{{salary}}"
       />
 
       <view class="label"><van-icon name="exchange" size="40rpx"/> 类型</view>
@@ -38,6 +42,7 @@
         palceholder="校招|社招|实习"
         columns="{{types}}"
         title="类型"
+        value="{{type}}"
       />
 
       <view class="label"><van-icon name="award-o" size="40rpx"/> 学历</view>
@@ -45,6 +50,7 @@
         palceholder="教育学历"
         columns="{{educations}}"
         title="类型"
+        value="{{qualification}}"
       />
 
       <view class="label"><van-icon name="chart-trending-o" size="40rpx"/> 行业</view>
@@ -52,6 +58,7 @@
         palceholder="行业类型"
         columns="{{industries}}"
         title="类型"
+        value="{{industry}}"
       />
 
       <view class="label"><van-icon name="chat-o" size="40rpx"/> 备注</view>
@@ -60,12 +67,13 @@
         type="textarea"
         input-class="textarea"
         placeholder="关于您和您的公司，什么想说的，欢迎您写在这里"
+        value="{{note}}"
       />
     </form>
   </view>
 
   <view style="margin: 50rpx 15%; height: 200rpx;">
-    <van-button color="#3acce2" size="large" form-type="submit" round block bindtap="submit">发布</van-button>
+    <van-button color="#4169E1" size="large" form-type="submit" round block bindtap="submit">发布</van-button>
   </view>
 </view>
 

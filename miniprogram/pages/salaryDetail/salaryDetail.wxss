@@ -95,9 +95,10 @@ page{
 }
 .m_content{
   font-weight: 500;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #464646;
   padding: 25rpx 10rpx;
+  margin: 20rpx 5rpx 10rpx 10rpx;
 }
 .r_box{
   width: 100%;

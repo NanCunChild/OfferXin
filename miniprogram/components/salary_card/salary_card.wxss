@@ -1,120 +1,147 @@
 /* components/salary_card/salary_card.wxss */
 @import '../../app.wxss';
-.left{
-  width: 45%;
-}
-.right{
-  width: 55%;
-}
-.item_box{
-  background-color: white;
-  border-radius: 20rpx;
-  margin: 3%;
-  padding: 30rpx;
-}
-.company{
-  font-weight: 600;
-  font-size: 35rpx;
-  color: #523e3e;
-}
-.salary{
-  font-weight: 700;
-  font-size: 35rpx;
-  color: #41a7e2;
-}
-.row2{
-  margin: 15rpx 0;
-}
-.position{
-  font-weight: 550;
-  font-size: 30rpx;
-  color: #523e3e;
-}
-.tag_box{
-  overflow: scroll;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: block-axis;
-  word-break: keep-all;
-  line-height: 50rpx;
-}
-.tag_box::-webkit-scrollbar{
-  display: none;
-}
-.tag{
-  background-color: #e1ffff;
-  color: #41a7e2;
-  font-weight: 500;
-  border-radius: 10rpx;
-  padding: 4rpx 10rpx;
-  margin: 0 8rpx;
-}
-.row3{
-  height: 52rpx;
-  background-color: #ececec;
-  border-radius: 20rpx;
-  padding: 0 20rpx;
-  margin-bottom: 15rpx;
-}
-.remark{
-  font-weight: 550;
-  font-size: 26rpx;
-  color: #7e6f6f;
-}
-.row4{
-  font-weight: 550;
-  font-size: 25rpx;
-  color: #7e6f6f;
-}
-.icon_time{
-  font-size: 25rpx;
-  margin-right: 8rpx;
-}
-.icon_eye{
-  font-size: 32rpx;
-  margin-right: 8rpx;
-  margin-left: 16rpx;
+.left {
+    width: 45%;
 }
 
-.bottom{
-  padding: 30rpx 0;
-  text-align: center;
-  font-weight: 550;
-  font-size: 30rpx;
-  color: #7e6f6f;
+.right {
+    width: 55%;
 }
-.cut_text{
-  overflow: hidden;
-  text-overflow: ellipsis;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-  line-height: 50rpx;
+.item_box {
+    background-color: white;
+    border-radius: 20rpx;
+    margin: 3%;
+    padding: 30rpx;
+}
+
+.company {
+    font-weight: 600;
+    font-size: 35rpx;
+    color: #523e3e;
+}
+
+.salary {
+    font-weight: 700;
+    font-size: 35rpx;
+    color: #41a7e2;
+}
+
+.row2 {
+    margin: 15rpx 0;
+}
+
+.position {
+    font-weight: 550;
+    font-size: 30rpx;
+    color: #523e3e;
+}
+
+.tag_box {
+    overflow: scroll;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: block-axis;
+    word-break: keep-all;
+    line-height: 50rpx;
+}
+
+.tag_box::-webkit-scrollbar {
+    display: none;
+}
+
+.tag {
+    background-color: #e1ffff;
+    color: #41a7e2;
+    font-weight: 500;
+    border-radius: 10rpx;
+    padding: 4rpx 10rpx;
+    margin: 0 8rpx;
+}
+
+.row3 {
+    height: 52rpx;
+    background-color: #ececec;
+    border-radius: 20rpx;
+    padding: 0 20rpx;
+    margin-bottom: 15rpx;
+}
+
+.remark {
+    font-weight: 550;
+    font-size: 26rpx;
+    color: #7e6f6f;
+}
+
+.row4 {
+    font-weight: 550;
+    font-size: 25rpx;
+    color: #7e6f6f;
+}
+
+.icon_time {
+    font-size: 25rpx;
+    margin-right: 8rpx;
+}
+
+.icon_eye {
+    font-size: 32rpx;
+    margin-right: 8rpx;
+    margin-left: 16rpx;
+}
+
+.bottom {
+    padding: 30rpx 0;
+    text-align: center;
+    font-weight: 550;
+    font-size: 30rpx;
+    color: #7e6f6f;
+}
+
+.cut_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    line-height: 50rpx;
 }
 
 .avator {
-  width: 48rpx;
-  height: 48rpx;
-  border-radius: 24rpx;
-  overflow: hidden;
-  margin-right: 20rpx;
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: 24rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
 }
 
 .avator image {
-  width: 48rpx;
-  height: 48rpx;
+    width: 48rpx;
+    height: 48rpx;
 }
 
-.note{
-  font-size: 28rpx;
+.note {
+    font-size: 28rpx;
 }
 
-.city{
-  margin-left: 10rpx;
-  font-weight: 550;
-  font-size: 30rpx;
-  color: #523e3e;
+.city {
+    margin-left: 10rpx;
+    font-weight: 550;
+    font-size: 30rpx;
+    color: #523e3e;
+}
+
+.postBtn {
+    font-size: 24rpx;
+    width: 164rpx;
+    margin: 10rpx 5rpx 10rpx 20rpx;
+    padding: 10rpx;
+    background-color: #dadada;
+    border-radius: 10rpx;
+    font-weight: 600;
+    color: #6d6d6d;
 }

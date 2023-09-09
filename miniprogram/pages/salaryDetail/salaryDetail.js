@@ -53,6 +53,11 @@ Page({
       active: 1
     })
   },
+  go(e) {
+    wx.navigateTo({
+      url: '/pages/webview/webview?website=' + e.currentTarget.dataset.url
+    })
+  },
   comment(event){
     if(this.data.value.length==0) {
       Toast('请输入您的评论')

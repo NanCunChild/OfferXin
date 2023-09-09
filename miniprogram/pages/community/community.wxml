@@ -20,7 +20,7 @@
   </div>
 
   <van-dropdown-menu class="fliter">
-    <van-dropdown-item id="sorts" bind:change="onFliterChange" title="筛选" id="fliter">
+    <van-dropdown-item bind:change="onFliterChange" title="筛选" id="fliter">
       <van-cell title="公司性质">
         <!-- <van-checkbox-group value="{{ enterprise_fliter }}" bind:change="onEnterpriseChaChange"> -->
         <div class="fliter_enterCha_container">
@@ -55,6 +55,27 @@
         </div>
 
       </van-cell>
+
+      <van-cell title="招聘对象">
+        <div class="fliter_enterCha_container">
+          <van-checkbox name="RiC" use-icon-slot value="{{RiC}}" bind:change="onRiCChange">
+            <image slot="icon" src="{{RiC ? '/images/RiC_C.svg' : '/images/RiC.svg'}}" class="fliter_enterCha_icon"></image>校招
+          </van-checkbox>
+          <van-checkbox name="RiP" use-icon-slot value="{{RiP}}" bind:change="onRiPChange">
+            <image slot="icon" src="{{RiP ? '/images/RiP_C.svg' : '/images/RiP.svg'}}" class="fliter_enterCha_icon"></image>往届
+          </van-checkbox>
+        </div>
+
+        <div class="fliter_enterCha_container">
+          <van-checkbox name="Inte" use-icon-slot value="{{Inte}}" bind:change="onInteChange">
+            <image slot="icon" src="{{Inte ? '/images/Inte_C.svg' : '/images/Inte.svg'}}" class="fliter_enterCha_icon"></image>实习
+          </van-checkbox>
+          <!-- <van-checkbox name="RiP" use-icon-slot value="{{RiP}}" bind:change="onRiPChange">
+            <image slot="icon" src="{{RiP ? '/images/Gov_C.svg' : '/images/Gov.svg'}}" class="fliter_enterCha_icon"></image>往届
+          </van-checkbox> -->
+        </div>
+      </van-cell>
+
       <van-cell title="城市选择 1" bindtap="onOpenCitySelect1">
         <div>{{selectedCity1}}</div>
       </van-cell>
@@ -82,7 +103,7 @@
 </van-popup>
 
 <button class="shareContainer" plain="true" open-type="share">
-  <image class="shareImg" src="/images/Share.svg"></image>
+  <image class="shareImg" src="/images/Share.png">分享</image>
 </button>
 
 <view class="middle">
@@ -94,8 +115,8 @@
   </view>
   <view wx:else>
 
-    <scroll-view scroll-y="true" class="itemScroll">
-      <block wx:for="{{recruitment_items}}" wx:key="_id" class="itemBlock">
+    <scroll-view scroll-y="true" class="itemScroll" bindscrolltolower="onReachScrollViewBottom" lower-threshold="600">
+      <block wx:for="{{showOutRecruitmentItems}}" wx:key="_id" class="itemBlock">
         <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}" data-viewdata="{{item.viewData}}" data-index="">
           <div class="itemLogoContainer">
             <image src="{{item.logo==undefined ? '/images/dell-logo.svg' : item.logo}}" class="itemLogo"></image>
@@ -103,7 +124,7 @@
           <div class="textBundle">
             <div class="itemTitle">
               <div class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">{{item.company_character}}</div>
-              {{stringUtils.subString(item.recruitment_name,0,18)+"..."}}
+              {{stringUtils.subString(item.recruitment_name,0,16)+"..."}}
             </div>
 
             <div class="itemDetail">
@@ -133,11 +154,12 @@
                   <image src="../../images/Watched.png" class="itemWatchedImg"></image>
                 </div>
               </div>
-            </div>
+            </div> 
 
           </div>
         </div>
       </block>
+      <view style="display: flex; width: 100%; font-size: 36rpx; margin: 20rpx 5rpx 200rpx 5rpx;align-items: center; justify-content: center;">到底了</view>
       <!-- <button bindtap="goRecruitmentDetail">Only For Debug</button> -->
     </scroll-view>
 

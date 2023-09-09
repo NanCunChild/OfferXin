@@ -3,5 +3,5 @@
     "van-popup": "@vant/weapp/popup/index",
     "van-toast": "@vant/weapp/toast/index"
   },
-  "navigationBarBackgroundColor": "#ffffff"
+  "navigationBarBackgroundColor": "#4169E1"
 }

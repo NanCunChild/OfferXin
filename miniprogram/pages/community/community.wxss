@@ -3,6 +3,7 @@
 
 page {
   padding-bottom: 10rpx;
+  height: 100%;
   /* padding-top: 30rpx; */
   background-color: #ebebeb;
 }
@@ -39,18 +40,20 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 24rpx;
-  bottom: 24rpx;
-  width: 81rpx;
-  height: 81rpx;
+  right: 32rpx;
+  bottom: 48rpx;
+  width: 96rpx;
+  height: 96rpx;
   background-color: #fafafa;
-  border-radius: 40rpx;
+  border-radius: 48rpx;
   box-shadow: 2rpx 2rpx 8rpx #7e6f6f;
   border: none;
 }
 
 .shareImg{
   display: flex;
+  flex-wrap: wrap;
+  font-size: 20rpx;
   width: 72rpx;
   height: 72rpx;
 }
@@ -59,7 +62,7 @@ page {
   display: flex;
   justify-items: center;
   width: 100%;
-  height: 100%;
+  height: 1600rpx;
   display: flex;
   justify-content: right;
   align-items: center;

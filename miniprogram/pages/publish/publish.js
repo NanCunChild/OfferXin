@@ -12,7 +12,15 @@ Page({
 
     types: ['校招', '实习', '社招'],
     educations: ['博士双一流', '博士985', '博士211', '博士海归', '博士', '硕士双一流', '硕士985', '硕士211', '硕士海归', '硕士', '本科双一流', '本科985', '本科211', '本科海归', '本科', '大专', '其他'],
-    industries: ['IT|互联网|通信', '金融', '采购|贸易|交通|物流', '生产|制造', '能源环保|农业科研', '销售|客服|市场', '财务|人力资源|行政', '项目质量|高级管理', '房产建筑|物业管理', '传媒|印刷|艺术|设计', '咨询|法律|教育|翻译', '服务业', '其他行业', '兼职|实习|社工|其他']
+    industries: ['IT|互联网|通信', '金融', '采购|贸易|交通|物流', '生产|制造', '能源环保|农业科研', '销售|客服|市场', '财务|人力资源|行政', '项目质量|高级管理', '房产建筑|物业管理', '传媒|印刷|艺术|设计', '咨询|法律|教育|翻译', '服务业', '其他行业', '兼职|实习|社工|其他'],
+    companyName:"",
+    occupasion:"",
+    city:"",
+    salary:"",
+    target:"",
+    qualification:"",
+    industry:"",
+    note:"",
   },
   submit(event){
     var info = {
@@ -52,6 +60,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+      let item=JSON.parse(options.item)
+      console.log(item);
+      this.setData({
+          companyName:item.company,
+          occupasion:item.industry,
+          city:item.city,
+          salary:item.salary,
+          type:item.type,
+          qualification:item.education,
+          industry:item.industry,
+          note:item.evaluation,
+      })
   },
 
   /**

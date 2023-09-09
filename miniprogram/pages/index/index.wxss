@@ -1,10 +1,12 @@
 /* pages/index/index.wxss */
 @import '../../app.wxss';
 
+
+
 .top_title{
   font-family: 'Times New Roman', Times, serif;
   padding: 0 0 20rpx;
-  background: #8DEEEE;
+  background: #4169E1;
   font-size: 80rpx;
   text-align: center;
   color: white;
@@ -13,23 +15,23 @@
 .top_text{
   font-family: 'Times New Roman', Times, serif;
   padding: 0 0 20rpx;
-  background: #8DEEEE;
+  background: #4169E1;
   font-size: 30rpx;
   text-align: center;
-  color: rgb(179, 166, 166);
+  color: #cccccc;
 }
 
 .top_box{
-  background: #8DEEEE;
+    background: #4169E1;
 }
 
 .search_box {
   width: 80%;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 20rpx;
   margin: 40rpx 0;
   padding: 30rpx 40rpx;
-  box-shadow: 0rpx 0rpx 5rpx 3rpx rgb(200, 202, 202);
+  box-shadow: 0rpx 0rpx 5rpx 3rpx #c8caca;
 }
 .search_icon{
   margin-right: 30rpx;

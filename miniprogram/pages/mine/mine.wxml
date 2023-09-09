@@ -1,34 +1,40 @@
 <view class="top_box">
-  <view class="avator" bindtap="register">
-    <image src="{{avator || '/images/avator.png'}}"></image>
-  </view>
-  <view class="nickname">{{nickname || '点击头像进行注册'}}</view>
+    <view class="avator" bindtap="register">
+        <image src="{{avator || '/images/avator.png'}}"></image>
+    </view>
+    <view class="nickname">{{nickname || '点击头像进行注册'}}</view>
 </view>
 
 <view class="center_box">
-  <navigator class="center_1" url="./publishlist/publishlist" hover-class="none">
-    <image src="/images/mine/publish.png"></image>
-    <view>我的发布</view>
-  </navigator>
-  <navigator class="center_1" url="./collectlist/collectlist" hover-class="none">
-    <image src="/images/mine/collect.png"></image>
-    <view>我的收藏</view>
-  </navigator>
-  <navigator class="center_1" url="./help/help" hover-class="none">
-    <image src="/images/mine/help.png"></image>
-    <view>帮助中心</view>
-  </navigator>
+    <navigator class="center_1" url="./publishlist/publishlist" hover-class="none">
+        <image src="/images/mine/publish.png"></image>
+        <view>我的发布</view>
+    </navigator>
+    <navigator class="center_1" url="./collectlist/collectlist" hover-class="none">
+        <image src="/images/mine/collect.png"></image>
+        <view>我的收藏</view>
+    </navigator>
+    <navigator class="center_1" url="./help/help" hover-class="none">
+        <image src="/images/mine/help.png"></image>
+        <view>帮助中心</view>
+    </navigator>
 </view>
 
 <view class="blank"></view>
 
 <swiper class="swipers" interval="3000" duration="500" circular="true" autoplay="true">
-    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/table_ad.png" /></swiper-item>
-    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/qq_ad.png" /></swiper-item>
-    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"><image src="../../images/table_ad.png" /></swiper-item>
-  </swiper>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+        <image src="../../images/table_ad.png" />
+    </swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+        <image src="../../images/qq_ad.png" />
+    </swiper-item>
+    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+        <image src="../../images/table_ad.png" />
+    </swiper-item>
+</swiper>
 
-<view class="bottom_box">
+<!-- <view class="bottom_box">
   <view class="bottom_card" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
     <view class="bottom_1">
       <image src="/images/mine/qq.png"></image>
@@ -58,27 +64,98 @@
     </view>
     <image src="/images/go.png"></image>
   </view>
+</view> -->
+<view class="funcCard">
+    <view class="funcInnerCard">
+        <view style="margin: 20rpx 5rpx 2rpx 30rpx; font-size: 36rpx;">常用功能</view>
+        <view class="btnFucInRow">
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
+                <image src="/images/mine/qq.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">加入社群</view>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+                <image src="/images/mine/commend.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">名企内推</view>
+            </view>
+            <view class="funcImgContainer">
+                <image src="/images/mine/feedback.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">问题反馈</view>
+                <button open-type="feedback" id="feedbackBtn"></button>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="showShare">
+                <image src="/images/mine/share.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">好用分享</view>
+            </view>
+        </view>
+
+        <view class="btnFucInRow">
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
+                <image src="/images/mine/qq.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">加入社群</view>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+                <image src="/images/mine/commend.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">名企内推</view>
+            </view>
+            <view class="funcImgContainer">
+                <image src="/images/mine/feedback.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">问题反馈</view>
+                <button open-type="feedback" id="feedbackBtn"></button>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="showShare">
+                <image src="/images/mine/share.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">好用分享</view>
+            </view>
+        </view>
+    </view>
 </view>
+
+
+<view class="funcCard">
+    <view class="funcInnerCard">
+        <view style="margin: 20rpx 5rpx 2rpx 30rpx; font-size: 36rpx;">其它功能</view>
+        <view class="btnFucInRow">
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
+                <image src="/images/mine/qq.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">加入社群</view>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
+                <image src="/images/mine/commend.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">名企内推</view>
+            </view>
+            <view class="funcImgContainer">
+                <image src="/images/mine/feedback.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">问题反馈</view>
+                <button open-type="feedback" id="feedbackBtn"></button>
+            </view>
+            <view class="otherfuncImgContainer" bindtap="showShare">
+                <image src="/images/mine/share.png" class="funcImg"></image>
+                <view style="font-size: 22rpx;">好用分享</view>
+            </view>
+        </view>
+    </view>
+</view>
+
 
 <!--分享弹出层-->
 <van-popup round show="{{ showShare }}" bind:close="closePop">
-  <view class="share_contain">
-    <view class="share_border"></view>
-    <view class="share_title">分享到</view>
-    <view class="share_box">
-      <view class="share_one">
-        <image src="/images/weixin.png"></image>
-        <view>微信好友</view>
-        <button class="share_button" open-type="share"></button>
-      </view>
-      <view class="share_bor"></view>
-      <view class="share_one">
-        <image src="/images/pyq.png"></image>
-        <view>朋友圈</view>
-        <button class="share_button" bindtap="preview"></button>
-      </view>
+    <view class="share_contain">
+        <view class="share_border"></view>
+        <view class="share_title">分享到</view>
+        <view class="share_box">
+            <view class="share_one">
+                <image src="/images/weixin.png"></image>
+                <view>微信好友</view>
+                <button class="share_button" open-type="share"></button>
+            </view>
+            <view class="share_bor"></view>
+            <view class="share_one">
+                <image src="/images/pyq.png"></image>
+                <view>朋友圈</view>
+                <button class="share_button" bindtap="preview"></button>
+            </view>
+        </view>
     </view>
-  </view>
 </van-popup>
 
 <van-toast id="van-toast" />

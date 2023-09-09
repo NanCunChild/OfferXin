@@ -4,6 +4,11 @@ page{
   padding-bottom: 120rpx;
   background-color: rgb(245, 245, 245);
 }
+
+.fliter{ 
+    z-index: 8;
+}
+
 .left{
   width: 45%;
   text-align: left;
@@ -60,8 +65,8 @@ page{
   display: flex;
   z-index: 8;
   position: fixed;
-  right: 60rpx;
-  bottom: 210rpx;
+  right: 40rpx;
+  bottom: 90rpx;
   width: 81rpx;
   height: 81rpx;
   background-color: #f1f1f1;
@@ -75,3 +80,18 @@ page{
   width: 52rpx;
   height: 52rpx;
 }
+
+.fliter_enterCha_icon{
+    display: flex;
+    width: 48rpx;
+    height: 48rpx;
+  }
+  
+  .fliter_enterCha_container{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 320rpx;
+    justify-content: space-between;
+    margin: 20rpx 2rpx;
+    /* border: #7e6f6f 2rpx solid; */
+  }

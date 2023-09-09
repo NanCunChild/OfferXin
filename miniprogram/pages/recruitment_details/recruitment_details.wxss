@@ -116,7 +116,7 @@ page {
   margin: 1rpx 8rpx 1rpx 4rpx;
   border-radius: 4rpx;
   background-color: #fd2f2fb7;
-  color: #dedede;
+  color: #ebebeb;
 }
 
 .CETag {
@@ -132,7 +132,7 @@ page {
 }
 
 .honorTag {
-  background-color: #ffb01ee7;
+  background-color: #f19d00e7;
 }
 
 .creditTag {
@@ -196,6 +196,25 @@ page {
   margin: 2rpx;
 }
 
+.applyDateContainer{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin: 10rpx 2rpx;
+}
+.applyDate{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  margin: 5rpx 50rpx 5rpx 10rpx;
+}
+.applyDateImg{
+  display: flex;
+  width: 36rpx;
+  height: 36rpx;
+  margin: 5rpx 10rpx;
+}
+
 .tagsContainer {
   display: flex;
   align-items: center;
@@ -242,10 +261,11 @@ page {
   display: flex;
   align-items: center;
   width: 90%;
-  background-color: #d6d6d6;
-  border-radius: 10rpx;
+  background-color: #f8f8f8;
+  border: #dadada 4rpx solid;
+  border-radius: 18rpx;
   margin: 10rpx 5rpx;
-  background: linear-gradient(#bdf8f3, #eeeeee);
+  /* background: linear-gradient(#bdf8f3, #eeeeee); */
 }
 
 .honorImg {
@@ -264,7 +284,7 @@ page {
   overflow: hidden;
   align-items: center;
   font-size: 32rpx;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .controlPannelContainer {

@@ -2,107 +2,113 @@
 
 <!-- top -->
 <view class="top_box">
-  <view class="row_container top_salary">{{obj.info.salary}}</view>
-  <view class="row_container top_row3">
-    <view class="item_key">公司</view>
-    <view class="item_value">{{obj.info.company}}</view>
-  </view>
-  <view class="row_container top_row3">
-    <view class="item_key">岗位</view>
-    <view class="item_value">{{obj.info.job}}</view>
-  </view>
-  <view class="row_container top_row3">
-    <view class="item_key">城市</view>
-    <view class="item_value">{{obj.info.city}}</view>
-  </view>
-  <view class="row_container top_row3">
-    <view class="item_key">类型</view>
-    <view class="item_value">{{obj.info.type}}</view>
-  </view>
-  <view class="row_container top_row3">
-    <view class="item_key">学历</view>
-    <view class="item_value">{{obj.info.education}}</view>
-  </view>
-  <view class="row_container top_row3">
-    <view class="item_key">行业</view>
-    <view class="item_value">{{obj.info.industry}}</view>
-  </view>
+    <view class="row_container top_salary">{{obj.info.salary}}</view>
+    <view class="row_container top_row3">
+        <view class="item_key">公司</view>
+        <view class="item_value">{{obj.info.company}}</view>
+    </view>
+    <view class="row_container top_row3">
+        <view class="item_key">岗位</view>
+        <view class="item_value">{{obj.info.job}}</view>
+    </view>
+    <view class="row_container top_row3">
+        <view class="item_key">城市</view>
+        <view class="item_value">{{obj.info.city}}</view>
+    </view>
+    <view class="row_container top_row3">
+        <view class="item_key">类型</view>
+        <view class="item_value">{{obj.info.type}}</view>
+    </view>
+    <view class="row_container top_row3">
+        <view class="item_key">学历</view>
+        <view class="item_value">{{obj.info.education}}</view>
+    </view>
+    <view class="row_container top_row3">
+        <view class="item_key">行业</view>
+        <view class="item_value">{{obj.info.industry}}</view>
+    </view>
 </view>
 
 <view class="divide_line"></view>
 
+<view class="m_body">
+    <view class="row_container left">
+        <view class="m_avator">
+            <image src="{{obj.info.avator || '../../images/avator.png'}}" />
+        </view>
+
+        <view>
+            <view class='m_nickname'>{{obj.info.nickname||'匿名'}}</view>
+            <view class="row_container left">
+                <van-icon class="m_icon l" name="clock-o" />{{obj.info.time || '????-??'}}
+                <van-icon class="m_icon" name="eye-o" />{{obj.info.views || 0}}
+            </view>
+        </view>
+    </view>
+    <view class="m_content">{{obj.info.evaluation || obj.info.salary}}</view>
+</view>
+
+<view class="row_container mid_row_icon">
+    <view class="collumn_container m_icon_2" bindtap="like">
+        <van-icon name="{{obj.info.like ? 'good-job' : 'good-job-o'}}" />
+        <view style="font-size: 30rpx;">{{obj.info.likes || 0}}</view>
+    </view>
+    <view class="collumn_container m_icon_2" bindtap="collect">
+        <van-icon name="{{obj.info.collect ? 'star' : 'star-o'}}" />
+        <view style="font-size: 30rpx;">{{obj.info.collects || 0}}</view>
+    </view>
+    <view class="collumn_container m_icon_2" bindtap="reply">
+        <van-icon name="chat-o" />
+        <view style="font-size: 30rpx;">{{obj.comments.length || 0}}</view>
+    </view>
+    <view class="collumn_container m_icon_2">
+        <van-icon name="share-o" />
+        <view style="font-size: 30rpx;">分享</view>
+        <button class="m_button" open-type="share"></button>
+    </view>
+</view>
+
+<view style="width: 100%;display: flex;justify-content: center;">
+    <view style="display: flex;width: 90%;height: 224rpx;border: none;justify-content: center;align-items: center;">
+        <image src="/images/table_ad.png" style="display: flex;width: 100%; height: 188rpx;border-radius: 10rpx;" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"></image>
+    </view>
+</view>
+
 <!-- middle -->
 <van-tabs active='{{active}}' swipeable animated bind:change="onChange">
-  <van-tab title="简介">
+    <van-tab title="推荐列表">
+        <view class="center" wx:if="{{salaries.length > 0}}">
+            <!-- <view class="m_text">推荐列表</view>
+            <view class="divide_line"></view> -->
+            <block wx:for="{{salaries}}">
+                <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
+                <view class="divide_line"></view>
+            </block>
+            <view class="m_text">到底啦</view>
+        </view>
+    </van-tab>
+    <van-tab title="评论">
 
-    <view class="m_body">
-      <view class="row_container left">
-        <view class="m_avator">
-          <image src="{{obj.info.avator || '../../images/avator.png'}}" />
+        <view class="center" wx:if="{{(!obj.comments || obj.comments.length == 0)}}">
+            <image class="image_blank" src="../../images/blank.png" />
+            <view class="note_blank">还没有评论~</view>
         </view>
-        
-        <view>
-          <view class='m_nickname'>{{obj.info.nickname||'匿名'}}</view>
-          <view class="row_container left">
-            <van-icon class="m_icon l" name="clock-o" />{{obj.info.time || '????-??'}}
-            <van-icon class="m_icon" name="eye-o" />{{obj.info.views || 0}}
-          </view>
+        <view wx:else>
+            <block wx:for="{{obj.comments}}">
+                <chat obj="{{item}}" bind:like="onLike" bind:reply="onReply" data-index="{{index}}" />
+            </block>
+            <view class="center m_text2">到底啦</view>
         </view>
-      </view>
-      <view class="m_content">{{obj.info.evaluation || obj.info.salary}}</view>
-      <view class="row_container mid_row_icon">
-        <view class="collumn_container m_icon_2" bindtap="like">
-          <van-icon name="{{obj.info.like ? 'good-job' : 'good-job-o'}}" />
-          <view style="font-size: 30rpx;">{{obj.info.likes || 0}}</view>
-        </view>
-        <view class="collumn_container m_icon_2" bindtap="collect">
-          <van-icon name="{{obj.info.collect ? 'star' : 'star-o'}}" />
-          <view style="font-size: 30rpx;">{{obj.info.collects || 0}}</view>
-        </view>
-        <view class="collumn_container m_icon_2" bindtap="reply">
-          <van-icon name="chat-o" />
-          <view style="font-size: 30rpx;">{{obj.comments.length || 0}}</view>
-        </view>
-        <view class="collumn_container m_icon_2">
-          <van-icon name="share-o" />
-          <view style="font-size: 30rpx;">分享</view>
-          <button class="m_button" open-type="share"></button>
-        </view>
-      </view>
-    </view>
 
-    <view class="center" wx:if="{{salaries.length > 0}}">
-      <view class="m_text">推荐列表</view>
-      <view class="divide_line"></view>
-      <block wx:for="{{salaries}}">
-        <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
-        <view class="divide_line"></view>
-      </block>
-      <view class="m_text">到底啦</view>
-    </view>
-
-  </van-tab>
-  <van-tab title="评论">
-    <view class="center" wx:if="{{!obj.comments || obj.comments.length == 0}}">
-      <image class="image_blank" src="../../images/blank.png" />
-      <view class="note_blank">还没有评论~</view>
-    </view>
-    <view wx:else>
-      <block wx:for="{{obj.comments}}">
-        <chat obj="{{item}}" bind:like="onLike" bind:reply="onReply" data-index="{{index}}" />
-      </block>
-      <view class="center m_text2">到底啦</view>
-    </view>
-
-    <view class='row_container r_box' wx:if="{{active==1}}">
-      <view class="r_field">
-        <input value="{{value}}" placeholder="请输入您的评论" bindconfirm="comment" bindinput="onInput" cursor-spacing="{{12}}" />
-      </view>
-      <view class="rb_box">
-        <button class="r_button" bindtap="comment">发布</button>
-      </view>
-    </view>
-  </van-tab>
+        <view class='row_container r_box' wx:if="{{active==1}}">
+            <view class="r_field">
+                <input value="{{value}}" placeholder="请输入您的评论" bindconfirm="comment" bindinput="onInput" cursor-spacing="{{12}}" />
+            </view>
+            <view class="rb_box">
+                <button class="r_button" bindtap="comment">发布</button>
+            </view>
+        </view>
+    </van-tab>
 </van-tabs>
 
 <van-toast id="van-toast" />

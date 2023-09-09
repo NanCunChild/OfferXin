@@ -3,17 +3,17 @@ page{
   font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #888888;
+  color: #4169E1;
 }
 
 .container{
   padding-top: 200rpx;
-  background: -webkit-linear-gradient(top, #8DEEEE, rgb(247, 243, 243));
+  background: -webkit-linear-gradient(top, #4169E1, #f7f3f3);
 }
 
 .title {
-  font-weight: 500;
-  color: #000000;
+  font-weight: 600;
+  color: #ffffff;
   font-size: 60rpx;
   margin-bottom: 20rpx;
   text-align: center;
@@ -22,7 +22,7 @@ page{
 .top_tip {
   font-size: 32rpx;
   font-weight: 400;
-  color: #888888;
+  color: #dfdfdf;
   margin-bottom: 28rpx;
   text-align: center;
 }
@@ -42,7 +42,7 @@ page{
   margin-left: 5%;
   font-weight: 1000;
   font-size: 32rpx;
-  color: #3acce2;
+  color: #4169E1;
 }
 
 .textarea{
