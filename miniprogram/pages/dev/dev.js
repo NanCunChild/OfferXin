@@ -52,6 +52,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
-  }
+  },
+  onShareTimeline() {
+        return{
+          title: '数十万大学生使用的求职校招找工作神器！找名企，查薪资！'
+        }
+      },
+    
 })

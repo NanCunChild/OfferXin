@@ -1,0 +1,8 @@
+<!-- pages/search/search.wxml -->
+<view>
+  <van-search value="{{ value }}" shape="round" placeholder="请输入搜索关键词" bind:change="search" />
+  <recruitment-card item="{{searchData}}"></recruitment-card>
+  <view wx:if="{{searchData.length}}" class="is_end">
+    到底啦，请输入其他关键词查询
+  </view>
+</view>

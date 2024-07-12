@@ -129,5 +129,11 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+  onShareTimeline() {
+        return{
+          title: '数十万大学生使用的求职校招找工作神器！找名企，查薪资！'
+        }
+      },
+    
 })

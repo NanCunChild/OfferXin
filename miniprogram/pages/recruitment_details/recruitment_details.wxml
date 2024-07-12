@@ -1,55 +1,67 @@
-<!--pages/recruitment_details/recruitment_details.wxml-->
+<!-- pages/recruitment_details/recruitment_details.wxml -->
 <wxs src="../../stringUtils.wxs" module="stringUtils"></wxs>
-
 <van-overlay show="{{ isGroupCodeShow }}" bind:click="hideGroupCode">
     Cause if tommorow brings something good
     <div class="groupOverlayWrapper">
         <div class="groupOverlayCard">
-            <div class="groupOverlayTitle">扫码入群</div>
-            <div class="groupOverlayName">{{all_data.groupName==undefined ? '公司交流发展 ① 群' : all_data.groupName}}</div>
-            <div class="groupOverlayQRCodeContainer">
-                <image src="/images/GroupCode.png" class="groupOverlayQRCode"></image>
+            <div class="groupOverlayTitle">校招实习交流群</div>
+            <div class="groupOverlayName">
+                {{all_data.groupName==undefined ? '10000+求职者已进群，群内推送最新校招信息、交流求职动态！' : all_data.groupName}}
             </div>
+            <div class="groupOverlayQRCodeContainer">
+                <image src="/images/加群微信logo.jpg" class="groupOverlayQRCode"></image>
+                
+            </div>
+            <text>备注“毕业年份-学校-专业”</text>
         </div>
     </div>
 </van-overlay>
-
-<view class='row_container r_box' wx:if="{{isCommentShow==true}}">
+<!-- <view class='row_container r_box' wx:if="{{isCommentShow==true}}">
     <view class="r_field">
         <input value="{{value}}" placeholder="请输入您的评论" bindconfirm="comment" bindinput="onInput" cursor-spacing="{{12}}" />
     </view>
     <view class="rb_box">
         <button class="r_button" bindtap="comment">发布</button>
     </view>
-</view>
-
-<div class="body">
-
+</view> -->
+<!-- <view class="top_box"></view> -->
+<div class="top_box">
     <div class="overviewCard">
         <div class="companyOutline">
-            <div class="companyLogoContainer">
-                <image src="/images/dell-logo.svg" class="companyLogo"></image>
-            </div>
             <div class="textBundle">
                 <div class="itemCharacterTagContainer">
-                    <div class="itemCharacterTag {{all_data.company_character=='央企' ? 'CETag' : (all_data.company_character=='国企' ? 'SETag' : 'PETag')}}">{{all_data.company_character}}</div>
-                    <div class="itemCharacterTag honorTag" wx:if="{{all_data.recruitment_target!=undefined}}">{{all_data.recruitment_target=="校招" ? '校招' : all_data.recruitment_target=="往届" ? '往届' : ''}}</div>
+                    <div class="itemCharacterTag {{all_data.company_character=='央企' ? 'CETag' : (all_data.company_character=='国企' ? 'SETag' : 'PETag')}}">
+                        {{all_data.company_character}}
+                    </div>
+                    <div class="itemCharacterTag honorTag" wx:if="{{all_data.recruitment_target!=undefined}}">
+                        <!-- {{all_data.recruitment_target=="校招" ? '校招' : all_data.recruitment_target=="实习" ? '实习' : ''}} -->
+                    {{all_data.recruitment_target}}
+                    </div>
                     <!-- <div class="itemCharacterTag creditTag">高信誉企业</div> -->
                 </div>
-
                 <div class="recruitmentName">{{all_data.recruitment_name}}</div>
                 <!-- {{stringUtils.subString(all_data.recruitment_name,0,15)+"..."}} -->
                 <div class="companyName">{{all_data.company_name}}</div>
-                <div class="publishDate">{{(all_data.update_date)}}</div>
+            </div>
+            <div class="companyLogoContainer">
+                <image src="{{all_data.logoUrl == undefined ? '/images/查查薪logo.png' : all_data.logoUrl}}" class="companyLogo"></image>
             </div>
         </div>
-
-        <div class="companyHonor">
-            <image src="/images/dell-logo.svg" class="honorImg"></image>
-            <div class="honorText">{{all_data.viewed==undefined ? '114' : all_data.viewed}}人浏览 {{all_data.consulted==undefined ? '13' : all_data.consulted}}人咨询</div>
-        </div>
-
-        <div class="controlPannelContainer">
+        <view class="companyHonor">
+            <view class="honorText">
+                <image src="/images/watch.png" mode="widthFix"></image>
+                <text>{{all_data.viewData==undefined ? '114' : all_data.viewData}}人次浏览</text>
+            </view>
+            <view class="honorText">
+                <image src="/images/ask.png" mode="widthFix"></image>
+                <text>{{all_data.copyCount==undefined ? '13' : all_data.copyCount}}人次咨询</text>
+            </view>
+            <view class="honorText">
+                <image src="/images/publish.png" mode="widthFix"></image>
+                <text>{{all_data.update_date}} 发布</text>
+            </view>
+        </view>
+        <!-- <div class="controlPannelContainer">
             <div class="controlPannelItem" bindtap="onTapFavorite">
                 <image src="{{isfavorited ? '/images/favorite_C.svg':'/images/favorite.svg'}}" class="controlPannelImg"></image>收藏
             </div>
@@ -64,56 +76,101 @@
                 </button>
 
             </div>
-        </div>
+        </div> -->
     </div>
-
     <div class="characterCard">
         <div class="introBundle">
+            <div class="line"></div>
             <div class="introTitle">总览</div>
         </div>
-
         <div class="tagBundle">
             <div class="tagsClass">网申时间段：</div>
             <div class="applyDateContainer">
                 <div class="applyDate">
-                    <image src="/images/StartTime.svg" class="applyDateImg"></image>{{all_data.start_date}}
+                    <image src="/images/StartTime.svg" class="applyDateImg"></image>
+                    {{all_data.start_date}}
                 </div>
                 <div class="applyDate">
-                    <image src="/images/EndTime.svg" class="applyDateImg"></image>{{all_data.end_date}}
+                    <image src="/images/EndTime.svg" class="applyDateImg"></image>
+                    {{all_data.end_date}}
                 </div>
             </div>
         </div>
-
         <div class="tagBundle">
-            <div class="tagsClass">位置：</div>
-            <block class="tagsContainer" wx:for="{{all_data.location}}" wx:key="index">
-                <div class="tags">{{item}}</div>
-            </block>
+            <div class="tagsClass">城市</div>
+            <div class="tagsContainer">
+                <div class="tags" wx:for="{{all_data.location}}" wx:key="index">{{item}}</div>
+            </div>
         </div>
-
         <div class="tagBundle">
             <div class="tagsClass">职位标签：</div>
-            <block class="tagsContainer" wx:for="{{all_data.position_A}}" wx:key="index">
-                <div class="tags">{{item}}</div>
-            </block>
+            <div class="tagsContainer">
+                <div class="tags" wx:for="{{all_data.position_A}}" wx:key="index">{{item}}</div>
+                <text style="margin-top: -5%;">
+                    {{all_data.position_B==undefined ? '暂无相关信息' : all_data.position_B}}
+                </text>
+            </div>
+
         </div>
-        <div class="tagBundle">
-            <div class="tagsClass">海外学历要求：</div>
+        <!-- <div class="tagBundle">
+            <div class="tagsClass">海外学历：</div>
             <block class="tagsContainer" wx:for="{{all_data.qualification_overseas}}" wx:key="index">
-                <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
+                <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">
+                    {{item}}
+                </div>
+            </block>
+        </div> -->
+        <div class="tagBundle">
+            <div class="tagsClass">学历要求：</div>
+            <block class="tagsContainer" wx:for="{{all_data.qualification_domestics}}" wx:key="index">
+                <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">
+                    {{item}}
+                </div>
             </block>
         </div>
         <div class="tagBundle">
-            <div class="tagsClass">国内学历要求：</div>
-            <block class="tagsContainer" wx:for="{{all_data.qualification_domestics}}" wx:key="index">
-                <div class="tags {{item=='硕士' ? 'masterDegree' : (item=='博士' ? 'doctorDegree' : '')}}">{{item}}</div>
-            </block>
+            <div class="tagsClass">毕业时间要求</div>
+            <text class="introPartText" user-select="true" style="margin-top: -8%;">
+                    {{all_data.graduatioin_domestics==undefined ? '暂无相关信息' : all_data.graduatioin_domestics}}届
+                </text>
         </div>
-
+        
+        <div class="tagBundle">
+            <div class="tagsClass">投递链接：</div>
+            <div class="tagsContainer" style="border: 10%;">
+                <text class="introPartText" user-select="true" style="margin-top: -8%;">
+                    {{all_data.href==undefined ? '暂无相关信息' : all_data.href}}
+                </text>
+                <!-- <text class="introPartText" bindtap="copyToClipboard" data-copy="{{all_data.href}}">复制</text> -->
+                <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.href}}">
+                    <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+                </div>
+            </div>
+        </div>
+        <div class="tagBundle" >
+            <div class="tagsClass">内推链接：</div>
+            <div class="tagsContainer">
+                <text class="introPartText" user-select="true" style="margin-top: -8%;">
+                    {{all_data.internalURL==undefined ? '暂无相关信息' : all_data.internalURL}}
+                </text>
+                <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.internalURL}}">
+                    <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="tagBundle" wx:if="{{all_data.internalURLCode!=undefined}}">
+            <div class="tagsClass">内推码：</div>
+            <div class="tagsContainer">
+                <text class="introPartText" user-select="true">{{all_data.internalURLCode==undefined ? '暂无相关信息' : all_data.internalURLCode}}</text>
+                <div class="introPartClipBtnContainer" bindtap="copyToClipboard" data-copy="{{all_data.internalURLCode}}">
+                    <image src="/images/clipboard.png" class="introPartClipBtn"></image>
+                </div>
+            </div>
+        </div> -->
     </div>
-
-    <div class="detailCard">
+    <!-- <div class="detailCard">
         <div class="introBundle">
+            
             <div class="introTitle">相关链接</div>
             <div class="introDetail">
 
@@ -150,7 +207,7 @@
                 <div class="introPart">
                     <div class="introGroupCard">
                         <div class="introGroupIconContainer">
-                            <image src="{{all_data.groupIcon==undefined ? '/images/dell-logo.svg' : all_data.groupIcon}}" class="introGroupIcon"></image>
+                            <image src="{{all_data.groupIcon==undefined ? '/images/查查薪logo.png' : all_data.groupIcon}}" class="introGroupIcon"></image>
                         </div>
                         <div class="introGroupTextBundle">
                             <div class="introGroupName">{{all_data.groupName==undefined ? '公司发展交流 ① 群' : all_data.groupName}}</div>
@@ -163,21 +220,195 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="detailCard" style="margin-bottom:200rpx;">
+    </div> -->
+    <view class="recommend-box" wx:if="{{all_data.internalURL!=undefined}}">
+        <view class="recommend-code">
+            {{all_data.internalURLCode==undefined ? '暂无相关信息' : all_data.internalURLCode}}
+        </view>
+        <image src="/images/recommend.jpg" style="height: 200rpx;" />
+        <view class="copy-box" bindtap="copyToClipboard" data-copy="{{all_data.internalURLCode}}"></view>
+    </view>
+    <div class="detailCard">
         <div class="introBundle">
-            <div class="introTitle">公司简介</div>
-            <div class="introDetail">
-                <div class="introPart">{{all_data.overview==undefined ? '我们是一个有着独特视角的多元化团队。统一的目标、战略和文化让我们团结一心，并肩前进。我们壮志凌云，致力于依靠技术的力量推动人类进步。我们矢志不渝，努力创造平等、信任和相互支持的环境。' : all_data.overview}}
+            <div class="line"></div>
+            <div class="introTitle">求职交流群</div>
+        </div>
+        <div class="introPart">
+            <div class="introGroupCard" bindtap="joinGroup">
+                <div class="introGroupIconContainer">
+                    <image src="{{all_data.groupIcon==undefined ? '/images/求职群logo.png' : all_data.groupIcon}}" class="introGroupIcon"></image>
+                </div>
+                <div class="introGroupTextBundle">
+                    <div class="introGroupName">
+                        {{all_data.groupName==undefined ? '2024大学生求职交流1群' : all_data.groupName}}
+                    </div>
+                    <div class="introGroupDetail">
+                        {{all_data.groupDetail==undefined ? '10000+求职者已进群' : all_data.groupDetail}}
+                    </div>
+                </div>
+                <div class="introGroupJoinContainer">
+                    <div class="introGroupJoinBtn" bindtap="joinGroup">立即进群</div>
                 </div>
             </div>
         </div>
+        <div class="introGroupTextBundle" style="font-weight: 800;margin-left: 4%;">
+              {{all_data.groupDetail==undefined ? '内推福利 | 求职信息共享 | 求职讨论交流' : all_data.groupDetail}}
+        </div>
     </div>
-
-    <van-tabbar active="{{activeTabber}}" bind:tap="onChangeTabber">
+    <div class="detailCard">
+        <div class="introBundle">
+            <div class="line"></div>
+            <div class="introTitle">信息详情</div>
+        </div>
+        <div class="introDetail">
+            <div class="introPart">
+                <!-- {{all_data.overview==undefined ? '我们是一个有着独特视角的多元化团队。统一的目标、战略和文化让我们团结一心，并肩前进。我们壮志凌云，致力于依靠技术的力量推动人类进步。我们矢志不渝，努力创造平等、信任和相互支持的环境。' : all_data.overview}} -->
+                <rich-text nodes="{{all_data.richtext}}"></rich-text>
+            </div>
+        </div>
+    </div>
+    <div class="detailCard">
+        <div class="introBundle">
+            <div class="line"></div>
+            <div class="introTitle">相关推荐</div>
+        </div>
+        <div class="introDetail">
+             <block wx:for="{{recommandData}}" wx:key="_id" class="itemBlock">
+                <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}" data-viewdata="{{item.viewData}}" data-index="">
+                    <div class="itemLogoContainer">
+                        <image style="width: 70%; height: 60%;position: relative;left: 15%; top: 20%;" src="{{item.logoUrl == undefined ? '/images/查查薪logo.png' : item.logoUrl}}" class="itemLogo"></image>
+                        <div class="tips">推荐</div>
+                    </div>
+                    <div class="textBundle">
+                        <div class="itemTitle" style="width: 100%;">
+                            <div wx:if="{{index == 0}}">
+                                <!-- <image src="/images/official.png" style="width: 120rpx; height: 40rpx;" /> -->
+                            </div>
+                            <div wx:else class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">
+                                {{item.company_character}}
+                            </div>
+                            <div> <text class="cardcompanyName">{{item.recruitment_name}}</text></div>
+                            <!-- {{stringUtils.subString(item.recruitment_name,0,16)+"..."}} -->
+                            
+                        </div>
+                        <div class="itemDetail" style="width: 100%; justify-content:flex-start;">
+                            <div class="item_recruitment_targets" wx:if="{{item.recruitment_target}}">
+                                <div class="item_recruitment_target_container" wx:for="{{item.recruitment_target}}" wx:key="index">
+                                    <div class="recruitment_target {{item=='校招' ? 'recruitment_in_compus' : (item=='实习' ? 'recruitment_in_intership' : '')}}">
+                                        {{item}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemLocations">
+                                <div class="itemLocationContainer" wx:for="{{item.location_simple}}" wx:key="index">
+                                    <div class="itemLocation ">{{item}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="itemDetail" style="display: flex; align-items: center;">
+                            <div class="itemPublishDate">更新时间 {{item.update_date}}</div>
+                            <div class="itemWatchedContainer">
+                                
+                                <div class="itemWatchedImgContainer" style="display: flex; align-items: center; margin-right: 10rpx;">
+                                    <image src="../../images/Watched.png" class="itemWatchedImg"></image>
+                                </div>
+                                {{item.viewData==undefined ? 0 : item.viewData}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <swiper wx:if="{{index != 0 && index % 6 == 0}}" class="swipers" interval="3000" duration="500" circular="true" autoplay="true" style="margin-top: 20rpx;">
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/table_ad.png" />
+                    </swiper-item>
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/qq_ad.png" />
+                    </swiper-item>
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/table_ad.png" />
+                    </swiper-item>
+                </swiper>
+            </block>
+            <block wx:for="{{showOutRecruitmentItems}}" wx:key="_id" class="itemBlock">
+                <div class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}" data-viewdata="{{item.viewData}}" data-index="">
+                    <div class="itemLogoContainer">
+                        <image style="width: 70%; height: 60%;position: relative;left: 15%; top: 20%;" src="{{item.logoUrl == undefined ? '/images/查查薪logo.png' : item.logoUrl}}" class="itemLogo"></image>
+                    </div>
+                    <div class="textBundle">
+                        <div class="itemTitle" style="width: 100%;">
+                            <div wx:if="{{index == 0}}">
+                                <!-- <image src="/images/official.png" style="width: 120rpx; height: 40rpx;" /> -->
+                            </div>
+                            <div wx:else class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">
+                                {{item.company_character}}
+                            </div>
+                            <div> <text class="cardcompanyName">{{item.recruitment_name}}</text></div>
+                            <!-- {{stringUtils.subString(item.recruitment_name,0,16)+"..."}} -->
+                            
+                        </div>
+                        <div class="itemDetail" style="width: 100%; justify-content:flex-start;">
+                            <div class="item_recruitment_targets" wx:if="{{item.recruitment_target}}">
+                                <div class="item_recruitment_target_container" wx:for="{{item.recruitment_target}}" wx:key="index">
+                                    <div class="recruitment_target {{item=='校招' ? 'recruitment_in_compus' : (item=='实习' ? 'recruitment_in_intership' : '')}}">
+                                        {{item}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemLocations">
+                                <div class="itemLocationContainer" wx:for="{{item.location_simple}}" wx:key="index">
+                                    <div class="itemLocation ">{{item}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="itemDetail" style="display: flex; align-items: center;">
+                            <div class="itemPublishDate">更新时间 {{item.update_date}}</div>
+                            <div class="itemWatchedContainer">
+                                
+                                <div class="itemWatchedImgContainer" style="display: flex; align-items: center; margin-right: 10rpx;">
+                                    <image src="../../images/Watched.png" class="itemWatchedImg"></image>
+                                </div>
+                                {{item.viewData==undefined ? 0 : item.viewData}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <swiper wx:if="{{index != 0 && index % 6 == 0}}" class="swipers" interval="3000" duration="500" circular="true" autoplay="true" style="margin-top: 20rpx;">
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/table_ad.png" />
+                    </swiper-item>
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/qq_ad.png" />
+                    </swiper-item>
+                    <swiper-item class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+                        <image src="../../images/table_ad.png" />
+                    </swiper-item>
+                </swiper>
+            </block>
+        </div>
+    </div>
+    <!-- <van-tabbar active="{{activeTabber}}" bind:tap="onChangeTabber">
         <van-tabbar-item name="recruitment_details" icon="home-o">招聘详情</van-tabbar-item>
         <van-tabbar-item name="salary_details" icon="friends-o" bind:tap="onTapDetailSalary">薪资详情</van-tabbar-item>
-    </van-tabbar>
+        
+    </van-tabbar> -->
+    <view class="detailCard" style="background-color: #f0f0f0; padding-bottom: calc(96rpx + env(safe-area-inset-bottom));"></view>
+    <view class="footer">
+        <view class="btn" bindtap="onTapForward">
+            <!-- <image src="/images/Forward.png"></image> -->
+            <button class="share_button" open-type="share" />
+            <text>转发</text>
+        </view>
+        <view class="btn" bindtap="onTapFavorite">
+            <image src="/images/favorite.png"></image>
+            <text wx:if="{{isfavorited}}">已收藏</text>
+            <text wx:else>收藏</text>
+        </view>
+        <view class="btn copylink" bindtap="goSearchSelary">
+            <text>查薪资</text>
+        </view>
+        <view class="btn copylink" bindtap="copyToClipboard" data-copy="{{all_data.href}}">
+            复制链接
+        </view>
+    </view>
     <!-- <button bindtap="getDatabyId">Only For Debug</button> -->
 </div>

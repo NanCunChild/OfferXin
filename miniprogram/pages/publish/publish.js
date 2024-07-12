@@ -49,8 +49,8 @@ Page({
           info: info
         }
       }).then(res=>{
-        this.data.hasSubmittedThisTime = true;
-        Toast('爆料成功');
+        this.data.hasSubmittedThisTime = false;
+        Toast('爆料成功，请等待审核发布！');
       }).catch(console.error);
       
     }
@@ -120,5 +120,11 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+  onShareTimeline() {
+        return{
+          title: '数十万大学生使用的求职校招找工作神器！找名企，查薪资！'
+        }
+      },
+    
 })

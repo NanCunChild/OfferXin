@@ -1,67 +1,199 @@
 /* pages/list/list.wxss */
-@import '../../app.wxss';
-page{
+@import "../../app.wxss";
+page {
   padding-bottom: 120rpx;
   background-color: rgb(245, 245, 245);
 }
 
-.fliter{ 
-    z-index: 8;
+.fliter {
+  z-index: 8;
 }
 
-.left{
+.left {
   width: 45%;
   text-align: left;
   justify-content: left;
 }
-.right{
+.right {
   width: 55%;
   text-align: right;
   justify-content: right;
 }
 
-.search_box{
+.search_box {
   width: 100%;
   position: fixed;
   left: 0rpx;
   top: 0rpx;
   z-index: 8;
 }
-.bottom{
+
+.tab-box2 {
+  background: #fff;
+  margin-top: 120rpx;
+  padding: 0 20rpx;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-box2 .tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-box2 .tab-item-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #a3a3a3;
+}
+.tab-box2 .tab-item-title.active {
+  color: #4169e1;
+}
+
+.tab-box2 .tab-item-bot {
+  width: 40rpx;
+  height: 0px;
+  margin-top: 12rpx;
+  border-radius: 50px;
+}
+.tab-box2 .tab-item-bot.active {
+  border: 2px solid #4169e1;
+}
+
+.conditions-box {
+  display: flex;
+  padding: 0 20rpx;
+  height: 100rpx;
+  align-items: center;
+  background: #fff;
+}
+.conditions-box view:first-child,
+.conditions-box view:nth-child(2) {
+  width: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.conditions-box view:nth-child(n + 3) {
+  flex: 1;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.dropdown {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown .menu {
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown .menu image {
+  width: 20rpx;
+  margin-left: 20rpx;
+}
+/* .dropdown .menu:first-child,
+.dropdown .menu:nth-child(2) {
+  width: 80rpx;
+} */
+
+.dropdown .menu:nth-child(n + 3) {
+  flex: 1;
+}
+
+.dropdown .dropdown-menu {
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  display: none;
+}
+.dropdown .dropdown-menu.show {
+  display: block;
+  background-color: white;
+}
+.dropdown-menu .menu-item {
+  margin: 20rpx 0;
+  padding: 0 20rpx;
+}
+.plus {
+  position: fixed;
+  right: 40rpx;
+  bottom: 180rpx;
+  z-index: 99;
+  background-color: #0e6eff;
+  border-radius: 48rpx;
+  width: 81rpx;
+  height: 81rpx;
+  font-size: 81rpx;
+  color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3rpx 6rpx 12rpx 2rpx #949494;
+}
+.bottom {
   padding: 30rpx 0;
   text-align: center;
   font-weight: 550;
   font-size: 30rpx;
   color: #7e6f6f;
 }
-.divide_line{
+.to_recruitment {
+  padding: 30rpx 0;
+  text-align: center;
+  font-weight: 550;
+  font-size: 30rpx;
+  color: #7e6f6f;
+}
+.to_recruitment text {
+  text-align: center;
+  font-weight: 550;
+  font-size: 30rpx;
+  color: #5394f0;
+}
+.divide_line {
   margin: 0 8%;
   border-bottom: 1rpx solid #e2dddd;
 }
-.tabbar{
+.tabbar {
   opacity: 0.9;
 }
-.middle{
-  padding-top: 100rpx;
+.middle {
+  /* padding-top: 100rpx; */
 }
-.note{
+.note {
   color: #b1b6b6;
   font-size: 32rpx;
   width: 70%;
   text-align: left;
 }
 .m_image_box {
-  height: 140rpx;
+  height: 200rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }
 
 .m_image_box image {
-  height: 140rpx;
+  height: 200rpx;
   width: 100%;
 }
 
-.backToTopBtn{
+.backToTopBtn {
   display: flex;
   z-index: 8;
   position: fixed;
@@ -75,23 +207,23 @@ page{
   justify-content: center;
   box-shadow: 3rpx 6rpx 12rpx 2rpx #949494;
 }
-.backToTopImg{
+.backToTopImg {
   display: flex;
   width: 52rpx;
   height: 52rpx;
 }
 
-.fliter_enterCha_icon{
-    display: flex;
-    width: 48rpx;
-    height: 48rpx;
-  }
-  
-  .fliter_enterCha_container{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 320rpx;
-    justify-content: space-between;
-    margin: 20rpx 2rpx;
-    /* border: #7e6f6f 2rpx solid; */
-  }
+.fliter_enterCha_icon {
+  display: flex;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.fliter_enterCha_container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 320rpx;
+  justify-content: space-between;
+  margin: 20rpx 2rpx;
+  /* border: #7e6f6f 2rpx solid; */
+}

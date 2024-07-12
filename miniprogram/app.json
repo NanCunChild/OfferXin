@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/start-cover/start-cover",
+    "pages/community/community",
     "pages/index/index",
     "pages/publish/publish",
-    "pages/community/community",
     "pages/mine/mine",
     "pages/webview/webview",
     "pages/list/list",
@@ -12,11 +13,12 @@
     "pages/mine/help/help",
     "pages/register/register",
     "pages/recruitment_details/recruitment_details",
-    "pages/dev/dev"
+    "pages/dev/dev",
+    "pages/search/search"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4169E1",
-    "navigationBarTitleText": "查查薪",
+    "navigationBarTitleText": "offer情报局",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -49,5 +51,9 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

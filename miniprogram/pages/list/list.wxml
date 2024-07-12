@@ -2,9 +2,9 @@
 <page-meta page-style="{{ showDropdownMenu ? 'overflow: hidden;' : '' }}" />
 
 <van-sticky offset-top="{{ 50 }}">
-    <van-search class="search_box" value="{{ value }}" clearable placeholder="如：上海+字节" bind:search="onSearch" />
+  <van-search class="search_box" value="{{ value }}" clearable placeholder="复杂查询用空格连接，如深圳 腾讯 后端" bind:search="onSearch" />
 
-    <van-dropdown-menu class="fliter" wx:if="{{false}}">
+  <!-- <van-dropdown-menu class="fliter" wx:if="{{false}}">
         <van-dropdown-item title="筛选" id="fliter">
             <van-cell title="招聘对象">
                 <view class="fliter_enterCha_container">
@@ -27,50 +27,121 @@
                 </van-button>
             </view>
         </van-dropdown-item>
-    </van-dropdown-menu>
+    </van-dropdown-menu> -->
 </van-sticky>
+<view class="tab-box2">
+  <view class="tab-item" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" bindtap="handleTabTap">
+    <view class="tab-item-title {{index === tabIndex ? 'active' : ''}}">{{item.title}}</view>
+    <view class="tab-item-bot {{index === tabIndex ? 'active' : ''}}"></view>
+  </view>
+</view>
+<view class="dropdown" wx:if="{{tabIndex==0}}">
+  <view class="menu" data-toggle='dropdown0' bindtap="toggleDropdown">
+    <text>薪资类型</text>
+    <image src="{{!dropdownShow0 ? '/images/down.png' : '/images/up.png'}}" mode="widthFix" />
+  </view>
+  <view class="menu" data-toggle='dropdown1' bindtap="toggleDropdown">
+    <text>排序方式</text>
+    <image src="{{!dropdownShow1 ? '/images/down.png' : '/images/up.png'}}" mode="widthFix" />
+  </view>
+  <view class="menu" data-toggle='dropdown2' bindtap="toggleDropdown">
+    <text>爆料时间</text>
+    <image src="{{!dropdownShow2 ? '/images/down.png' : '/images/up.png'}}" mode="widthFix" />
+  </view>
+  <view class="menu" data-toggle='dropdown3' bindtap="toggleDropdown">
+    <text>学历</text>
+    <image src="{{!dropdownShow3 ? '/images/down.png' : '/images/up.png'}}" mode="widthFix" />
+  </view>
 
-<view style="position: fixed; right: 40rpx; bottom: 180rpx; background-color: #0e6eff;border-radius: 48rpx;width: 81rpx; height: 81rpx;font-size: 81rpx;color: #ebebeb;display: flex;align-items:center; justify-content: center;box-shadow: 3rpx 6rpx 12rpx 2rpx #949494;" bind:tap="postTreatB"><view style="display: flex;align-items: flex-start;margin-bottom: 10rpx;">+</view></view>
+  <view class="dropdown-menu {{dropdownShow0 ? 'show' : ''}}">
+    <view bind:tap="handleBx" class="menu-item">
+    不限
+    </view>
+    <view bind:tap="handleXz" class="menu-item">
+    校招
+    </view>
+      <view bind:tap="handleSx"  class="menu-item">
+      实习
+    </view>
+    <view bind:tap="handleSz"  class="menu-item">
+      社招
+    </view>
+  </view>
+  <view class="dropdown-menu {{dropdownShow1 ? 'show' : ''}}">
+    <view class="menu-item" bind:tap="filterByTime" data-type="time">发布时间</view>
+    <view class="menu-item" bind:tap="filterByView" data-type="views">浏览量</view>
+  </view>
+  <view class="dropdown-menu {{dropdownShow2 ? 'show' : ''}}">
+    <view class="menu-item" bind:tap="filterByYear" data-year="2024">2024</view>
+    <view class="menu-item" bind:tap="filterByYear" data-year="2023">2023</view>
+    <view class="menu-item" bind:tap="filterByYear" data-year="2022">2022</view>
+  </view>
+  <view class="dropdown-menu {{dropdownShow3 ? 'show' : ''}}">
+    <!-- <view class="menu-item" bind:tap="filterByDegree" data-education="不限">博士</view> -->
+    <view class="menu-item" bind:tap="filterByDegree" data-education="博士">博士</view>
+    <view class="menu-item" bind:tap="filterByDegree" data-education="研究生">研究生</view>
+    <view class="menu-item" bind:tap="filterByDegree" data-education="本科">本科</view>
+    <view class="menu-item" bind:tap="filterByDegree" data-education="大专">大专</view>
+    <view class="menu-item" bind:tap="filterByDegree" data-education="其他">其他</view>
+  </view>
+</view>
+<!-- <view class="conditions-box">
+    <block wx:for="{{conditions}}" wx:key="index">
+        <view class="condition-item dropdown"
+            data-toggle='dropdown'
+            >
+
+            <text>{{item.title}}</text>
+            
+        </view>
+    </block>
+    
+</view> -->
+
+<view class="plus" bind:tap="postTreatB">
+  <view style="display: flex;align-items: flex-start;margin-bottom: 10rpx;">+</view>
+</view>
 
 <view class="backToTopBtn" bindtap="goTop" hidden="{{!isGoTopShow}}">
-    <image src="/images/GoTop.svg" class="backToTopImg"></image>
+  <image src="/images/GoTop.svg" class="backToTopImg"></image>
 </view>
 
 <view class="middle">
-    <block wx:if="{{active==0}}">
-        <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA">
-            <image src="../../images/table_ad.png" />
+  <block wx:if="{{tabIndex==0}}">
+    <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+      <image src="../../images/qq_ad.png" />
+    </view>
+    <view class='collumn_container center blank_top' wx:if="{{salaries.length==0}}">
+      <image class="image_blank" src="../../images/blank_1.png" />
+      <view class="note">更多复杂查询请用空格连接多个关键字，如：杭州 阿里、北京 字节</view>
+    </view>
+    <view wx:else>
+      <block wx:for="{{salaries}}" wx:key="_id">
+        <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
+        <view wx:if="{{index !=0 && index % 7 == 0}}" class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+          <image src="../../images/qq_ad.png" />
         </view>
-        <view class='collumn_container center blank_top' wx:if="{{salaries.length==0}}">
-            <image class="image_blank" src="../../images/blank_1.png" />
-            <view class="note">请输入城市+公司+岗位，如：字节、后端+上海、字节+上海+后端</view>
-        </view>
-        <view wx:else>
-            <block wx:for="{{salaries}}" wx:key="_id">
-                <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
-            </block>
-            <view class="bottom" wx:if="{{isLoadingSalaries}}">加载中</view>
-            <view class="bottom" wx:if="{{isSalariesMax}}">到底啦</view>
-        </view>
-    </block>
+      </block>
+      <view class="bottom" wx:if="{{isLoadingSalaries}}">加载中</view>
+      <view class="bottom" wx:if="{{isSalariesMax}}">到底啦，更多复杂查询请使用空格连接</view>
+    </view>
+  </block>
 
-    <block wx:else="{{active==1}}">
-        <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/6bFGEKjtEd1MSLn-OKEJug">
-            <image src="../../images/qq_ad.png" />
-        </view>
-        <view class='collumn_container center blank_top' wx:if="{{communities.length==0}}">
-            <image class="image_blank" src="../../images/blank_1.png" />
-            <view class="note">请输入你感兴趣的内容多个关键字之间用+连接，如：小程序、上海+字节</view>
-        </view>
-        <view wx:else>
-            <block wx:for="{{communities}}" wx:key="_id">
-                <community obj="{{item.info}}" catchtap="goCommunityDetail" data-id="{{item._id}}"></community>
-                <!-- <view class="divide_line"></view> -->
-            </block>
-            <view class="bottom" wx:if="{{isLoadingCommunities}}">加载中</view>
-            <view class="bottom" wx:if="{{isCommunitiesMax}}">到底啦</view>
-        </view>
-    </block>
+  <block wx:else="{{tabIndex==1}}">
+    <view class="m_image_box" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ">
+      <image src="../../images/qq_ad.png" />
+    </view>
+    <view class='collumn_container center blank_top' wx:if="{{recruitments.length==0}}">
+      <image class="image_blank" src="../../images/blank_1.png" />
+      <view class="note">更多复杂查询请用空格连接多个关键字，如：杭州 阿里、北京 字节</view>
+    </view>
+    <view wx:else>
+      <recruitment item="{{recruitments}}" />
+      <view class="bottom" wx:if="{{isLoadingRecruitments}}">加载中</view>
+      <view class="to_recruitment" wx:if="{{isRecruitmentMax}}">更多招聘信息请前往<text bind:tap="toRecruitment">校招合集页</text>
+      </view>
+    </view>
+  </block>
 
 </view>
 

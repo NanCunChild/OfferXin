@@ -1,7 +1,7 @@
 <view class="container">
   <view class="title">薪资发布</view>
 
-  <view class="top_tip">查查薪 — 不仅仅是查薪</view>
+  <view class="top_tip">offer情报局 — 收获offer分享offer</view>
 
   <view class="form_container">
     <form>

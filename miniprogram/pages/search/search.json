@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-search": "@vant/weapp/search/index",
+    "recruitment-card": "../../components/recruitment_card/recruitment_card"
+  }
+}

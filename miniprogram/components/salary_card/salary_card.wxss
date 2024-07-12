@@ -13,7 +13,7 @@
     background-color: white;
     border-radius: 20rpx;
     margin: 3%;
-    padding: 30rpx;
+    padding: 0 30rpx 30rpx 30rpx;
 }
 
 .company {
@@ -140,8 +140,8 @@
     width: 164rpx;
     margin: 10rpx 5rpx 10rpx 20rpx;
     padding: 10rpx;
-    background-color: #dadada;
+    background-color: #4169E1;
     border-radius: 10rpx;
     font-weight: 600;
-    color: #6d6d6d;
+    color: white;
 }

@@ -1,0 +1,50 @@
+<!-- components/recruitment_card/recruitment_card.wxml -->
+<view>
+  <block wx:for="{{item}}" wx:key="_id" class="itemBlock">
+    <view class="itemContainer" bindtap="goRecruitmentDetail" data-_id="{{item._id}}" data-dbName="{{item.dbName || null}}" data-recruitTarget="{{item.recruitment_target}}" data-viewdata="{{item.viewData}}" data-index="">
+      <view class="itemLogoContainer">
+        <image style="width: 70%; height: 60%;position: relative;left: 15%; top: 20%;" src="{{item.logoUrl == undefined ? '/images/查查薪logo.png' : item.logoUrl}}" class="itemLogo" mode="aspectFit"></image>
+        <view class="tips" wx:if="{{isRecommand}}">
+          推荐
+        </view>
+      </view>
+      <view class="textBundle">
+        <view class="itemTitle">
+          <view wx:if="{{index <= 1 || index != 0 && index % 7 == 0 || index != 0 && index % 8 == 0}}">
+          <!-- 写了一个官方直聘的图片 -->
+            <!-- <image src="/images/official.png" style="width: 120rpx; height: 40rpx;" /> -->
+          </view>
+          <view wx:else class="itemCharacterTag {{item.company_character=='央企' ? 'CETag' : item.company_character=='民企' ? 'PETag' : 'SETag'}}">
+            {{item.company_character}}
+          </view>
+          <!-- {{stringUtils.subString(item.recruitment_name,0,16)+"..."}} -->
+          <text class="companyName">{{item.recruitment_name}}</text>
+        </view>
+        <view class="itemDetail" style="justify-content:flex-start;">
+          <view class="item_recruitment_targets">
+            <view class="item_recruitment_target_container"  wx:key="index">
+              <view class="recruitment_target {{item=='校招' ? 'recruitment_in_compus' : (item=='实习' ? 'recruitment_in_intership' : '')}}">
+                {{item.recruitment_target}}
+              </view>
+            </view>
+          </view>
+          <view class="itemLocations">
+            <view class="itemLocationContainer" wx:for="{{item.location_simple}}" wx:key="index">
+              <view class="itemLocation ">{{item}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="itemDetail">
+          <view class="itemPublishDate">更新: {{item.update_date}}</view>
+          <view class="itemWatchedContainer">
+            {{item.viewData==undefined ? 110 : item.viewData}}
+            <view class="itemWatchedImgContainer">
+              <image src="../../images/Watched.png" class="itemWatchedImg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <slot/>
+  </block>
+</view>

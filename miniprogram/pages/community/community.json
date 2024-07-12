@@ -17,10 +17,10 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-button": "@vant/weapp/button/index",
     "van-area": "@vant/weapp/area/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "recruitment-card": "../../components/recruitment_card/recruitment_card"
   },
-  "navigationBarTitleText": "查查薪 | 推荐内容",
-
+  "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 200
 }

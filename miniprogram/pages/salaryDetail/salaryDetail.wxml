@@ -1,8 +1,13 @@
-<!--pages/salaryDetail/salaryDetail.wxml-->
-
+<!-- pages/salaryDetail/salaryDetail.wxml -->
 <!-- top -->
 <view class="top_box">
-    <view class="row_container top_salary">{{obj.info.salary}}</view>
+    <view class="row_container top_salary">
+        <text class="item_key" style="font-size: 36rpx;">薪资爆料</text>
+        <view class="job">{{obj.info.industry}}</view>
+    </view>
+    <view class="row_container top_salary">
+        <text class="salary">{{obj.info.salary}}</text>
+    </view>
     <view class="row_container top_row3">
         <view class="item_key">公司</view>
         <view class="item_value">{{obj.info.company}}</view>
@@ -23,16 +28,17 @@
         <view class="item_key">学历</view>
         <view class="item_value">{{obj.info.education}}</view>
     </view>
-    <view class="row_container top_row3">
+    <!-- <view class="row_container top_row3">
         <view class="item_key">行业</view>
         <view class="item_value">{{obj.info.industry}}</view>
+    </view> -->
+    <view class="img-container">
+        <image src="/images/company.png" mode="widthFix"></image>
     </view>
 </view>
-
 <view class="divide_line"></view>
-
 <view class="m_body">
-    <view class="row_container left">
+    <!-- <view class="row_container left">
         <view class="m_avator">
             <image src="{{obj.info.avator || '../../images/avator.png'}}" />
         </view>
@@ -44,11 +50,43 @@
                 <van-icon class="m_icon" name="eye-o" />{{obj.info.views || 0}}
             </view>
         </view>
-    </view>
+    </view> -->
     <view class="m_content">{{obj.info.evaluation || obj.info.salary}}</view>
+    <view class="icon-container">
+        <view class="left" style="width: 70%;">
+            <van-icon class="icon_time" name="clock-o" />
+            {{obj.info.time || '????-??'}}
+            <van-icon class="icon_eye" name="eye-o" />
+            {{obj.info.views || 0}}
+        </view>
+        <!-- <view class="right" >
+            <view bindtap="collect">
+                <van-icon name="{{obj.info.collect ? 'star' : 'star-o'}}" />
+            </view>
+            <view bindtap="reply">
+                <van-icon name="chat-o" />
+            </view>
+            <view style="position: relative; ">
+                <van-icon name="share-o" />
+                <button class="m_button" open-type="share"></button>
+            </view>
+        </view> -->
+    </view>
 </view>
-
-<view class="row_container mid_row_icon">
+<view class="trust-box">
+    <view class="trust-title">你觉得此薪资是否可信？</view>
+    <view class="trust-item">
+        <view class="item" bindtap="saveLike">
+            <image class="" src="/images/trust.png" mode="widthFix"></image>
+            可信({{obj.info.likes}})
+        </view>
+        <view class="item" bindtap="saveHeat">
+            <image class="" src="/images/no_trust.png" mode="widthFix"></image>
+            不可信({{obj.info.heat || 0}})
+        </view>
+    </view>
+</view>
+<!-- <view class="row_container mid_row_icon">
     <view class="collumn_container m_icon_2" bindtap="like">
         <van-icon name="{{obj.info.like ? 'good-job' : 'good-job-o'}}" />
         <view style="font-size: 30rpx;">{{obj.info.likes || 0}}</view>
@@ -66,17 +104,15 @@
         <view style="font-size: 30rpx;">分享</view>
         <button class="m_button" open-type="share"></button>
     </view>
-</view>
-
+</view> -->
 <view style="width: 100%;display: flex;justify-content: center;">
     <view style="display: flex;width: 90%;height: 224rpx;border: none;justify-content: center;align-items: center;">
-        <image src="/images/table_ad.png" style="display: flex;width: 100%; height: 188rpx;border-radius: 10rpx;" bindtap="go" data-url="https://mp.weixin.qq.com/s/_i6AMGo0OjMtrcne-xzMbA"></image>
+        <image src="/images/qq_ad.png" style="display: flex;width: 100%; height: 188rpx;border-radius: 10rpx;" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ"></image>
     </view>
 </view>
-
 <!-- middle -->
 <van-tabs active='{{active}}' swipeable animated bind:change="onChange">
-    <van-tab title="推荐列表">
+    <van-tab title="相关推荐">
         <view class="center" wx:if="{{salaries.length > 0}}">
             <!-- <view class="m_text">推荐列表</view>
             <view class="divide_line"></view> -->
@@ -84,14 +120,14 @@
                 <salary item="{{item.info}}" bindtap="goSalaryDetail" data-id="{{item._id}}" />
                 <view class="divide_line"></view>
             </block>
-            <view class="m_text">到底啦</view>
+            <view class="m_text">到底啦，更多复杂查询请使用空格连接</view>
         </view>
     </van-tab>
-    <van-tab title="评论">
-
+    <van-tab title="评论({{obj.comments.length ? obj.comments.length : 0}})">
         <view class="center" wx:if="{{(!obj.comments || obj.comments.length == 0)}}">
             <image class="image_blank" src="../../images/blank.png" />
             <view class="note_blank">还没有评论~</view>
+            <view style="height: 200rpx;"></view>
         </view>
         <view wx:else>
             <block wx:for="{{obj.comments}}">
@@ -99,7 +135,6 @@
             </block>
             <view class="center m_text2">到底啦</view>
         </view>
-
         <view class='row_container r_box' wx:if="{{active==1}}">
             <view class="r_field">
                 <input value="{{value}}" placeholder="请输入您的评论" bindconfirm="comment" bindinput="onInput" cursor-spacing="{{12}}" />
@@ -110,5 +145,21 @@
         </view>
     </van-tab>
 </van-tabs>
-
 <van-toast id="van-toast" />
+<view class="footer">
+    <view class="btn" bindtap="onShare">
+        <!-- <image src="/images/Forward.png"></image> -->
+        <button class="share_button" open-type="share" />
+        <text>转发</text>
+    </view>
+    <view class="btn" bindtap="collect">
+        <image src="/images/favorite.png"></image>
+        <text wx:if="{{obj.info.collect}}">已收藏</text>
+        <text wx:else>收藏</text>
+    </view>
+    <view class="btn" bindtap="reply">
+        <image src="/images/feedback.png"></image>
+        <text>评论</text>
+    </view>
+    <view class="btn copylink">我要爆料</view>
+</view>

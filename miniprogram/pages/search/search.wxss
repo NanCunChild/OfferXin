@@ -1,0 +1,6 @@
+/* pages/search/search.wxss */
+.is_end {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100rpx;
+}

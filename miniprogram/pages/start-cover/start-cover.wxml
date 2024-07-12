@@ -1,0 +1,5 @@
+<!--pages/start-cover/start-cover.wxml-->
+
+<text class="goto" bindtap="gotoIndex">跳过{{time}}</text>
+
+  <image class="background-image" bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ" src="https://krseoul.imgtbl.com/i/2024/06/21/66753bad3104d.png"></image>

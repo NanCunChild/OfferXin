@@ -1,23 +1,53 @@
 <!--pages/index/index.wxml-->
-<view class='top_title'>查 查 薪</view>
-<view class="top_text">查薪、讨论 —— 就来查查薪</view>
+<!-- <view class="cover-popup" wx:if="{{showCover}}">
+ <View class="cover-image">
+ <view class="close" bindtap="hideCover">关闭</view>
+  <image class="image"  bindtap="go" data-url="https://mp.weixin.qq.com/s/tdtCKt8LEOeENCCvf58wBQ" src="../../images/cover-popup.png"></image>
+  </View>
+</view> -->
+
+<view class='top_title'>offer情报局</view>
+<view class="top_text">查薪资、找名企 —— 就来offer情报局</view>
 
 <view style="display: flex; position: fixed; top: 10rpx; left: 50rpx; width: 81rpx; height: 81rpx; background-color: #f1f1f1; border-radius: 50rpx;align-items: center; justify-content: center;" bind:tap="onTapBackBtn" wx:if="{{datasss!=undefined}}">返回</view>
 
-<view class="row_container center top_box" style="display: flex; flex-wrap: wrap;">
-    <view class="row_container left search_box" style="margin-bottom: 10rpx;">
-        <icon class="search_icon" type="search" size="15" />
-        <input class="search_text" placeholder="如：上海+字节+后端" bindconfirm="search" value="{{searchContent}}"/>
-    </view>
-    <view style="font-size: 20rpx; margin-top: 10rpx;color: azure;">想搜索特定地区、公司、岗位需要用“+”连接</view>
-    <view style="font-size: 20rpx; margin-bottom: 20rpx; color: azure;">如需查找上海地区的字节公司的后端岗位的薪资详情，请输入【上海+字节+后端】</view>
+<view class="row_container center top_box" style="display: flex; flex-wrap: wrap;flex-direction: column;align-items: center;justify-content: center;">
+  <view class="row_container left search_box" style="margin-bottom: 10rpx;">
+    <icon class="search_icon" type="search" size="15" />
+    <input class="search_text" placeholder="请输入公司/岗位/城市，如北京 字节" bindconfirm="search" value="{{searchContent}}" />
+  </view>
+  <view wx:if="{{searchHistory.has}}" style="font-weight: bold; color: #fff;padding: 20rpx 40rpx;align-self: flex-start;">
+    搜索历史:
+    <text bind:tap="handleSearchHistory" data-key="{{item}}" class="historyItem" wx:for="{{searchHistory.list}}">{{item}}</text>
+  </view>
+  <view style="font-size: 20rpx; margin-top: 10rpx;color: azure;">想搜索特定地区、公司、岗位用空格连接</view>
+  <view style="font-size: 20rpx; margin-bottom: 20rpx; color: azure;">如需查找上海地区的字节公司的后端岗位的薪资详情，请输入【上海 字节 后端】</view>
 </view>
 
+<!-- 轮播图 -->
 <van-tabs swipeable style="touch-action: manipulation;" active="{{active}}" bind:change="onChange">
+  <van-tab title="查城市"></van-tab>
+  <van-tab title="查公司"></van-tab>
+  <van-tab title="查岗位"></van-tab>
+</van-tabs>
+<view class="vanswiper"ads>
+  <swiper style="min-height: 700rpx;" autoplay circular bindchange="changeSwiper">
+    <swiper-item class="flex_center" wx:for="{{3}}" >
+      <view class="row_container ads_row" wx:for="{{ ads }}" wx:key="_id" >
+        <view class="collumn_container ads_col" bindtap="ad" data-index="{{index}}" style="height: 200rpx;">
+          <image mode="aspectFill" class="ad_img" src="{{item.src}}" />
+          <view class="ads_title">{{item.title}}</view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- <van-tabs swipeable style="touch-action: manipulation;" active="{{active}}" bind:change="onChange">
     <van-tab title="查城市">
         <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
-            <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
-                <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+            <view class="collumn_container ads_col" wx:for="{{ 2}}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
+                <image mode="aspectFill" class="ad_img" src="{{ads[row*2+col].src}}" />
                 <view class="ads_title">{{ads[row*2+col].title}}</view>
             </view>
         </view>
@@ -26,7 +56,7 @@
     <van-tab title="查公司">
         <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
             <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
-                <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+                <image mode="aspectFill" class="ad_img" src="{{ads[row*2+col].src}}" />
                 <view class="ads_title">{{ads[row*2+col].title}}</view>
             </view>
         </view>
@@ -35,13 +65,13 @@
     <van-tab title="查岗位">
         <view class="row_container ads_row" wx:for="{{ 4 }}" wx:for-item="row" wx:key="*this">
             <view class="collumn_container ads_col" wx:for="{{ 2 }}" wx:for-item="col" wx:key="*this" bindtap="ad" data-index="{{row*2+col}}">
-                <image mode="aspectFit" class="ad_img" src="{{ads[row*2+col].src}}" />
+                <image mode="aspectFill" class="ad_img" src="{{ads[row*2+col].src}}" />
                 <view class="ads_title">{{ads[row*2+col].title}}</view>
             </view>
         </view>
     </van-tab>
-</van-tabs>
+</van-tabs> -->
 
-<view class="center ads_bottom">更多求职招聘资讯请关注"查查薪"公众号</view>
-
+<view class="center ads_bottom" style="margin-top: -10%;" >更多求职招聘资讯请关注"offer情报局"公众号</view>
+<view style="text-align: center; margin-top: -5%;">\n商务合作微信：jiajiaolu。添加备注来意【offer情报局+来意】</view>
 <van-toast id="van-toast" />
